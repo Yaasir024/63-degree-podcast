@@ -14,11 +14,11 @@ const menuOption = [
 
 <template>
     <Header />
-    <section class="hero px-[94px] pt-[72px] pb-[180px]">
-        <h2 class="text-[64px] leading-[80px] font-bold text-63-dark-green">
+    <section class="hero px-[28px] xs:px-[42px] md:px-[64px] xl:px-[94px] pt-[72px] pb-[180px]">
+        <h2 class="text-[42px] sm:text-[64px] leading-[52px] sm:leading-[80px] font-bold text-63-dark-green">
             Contact Us
         </h2>
-        <p class="mt-[24px] text-[24px] leading-[30px] max-w-[540px] text-[#508794]">
+        <p class="mt-[15px] sm:mt-[24px] text-lg sm:text-[24px] leading-[24px] sm:leading-[30px] max-w-[540px] text-[#508794]">
             Sixty Three Degree’s mission is to make your living more healthy — from habits to long life.
         </p>
     </section>

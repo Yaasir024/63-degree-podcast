@@ -14,11 +14,11 @@ const menuOption = [
 
 <template>
     <Header />
-    <section class="hero px-[94px] pt-[72px] pb-[83px]">
-        <h2 class="text-[64px] leading-[80px] font-bold text-63-dark-green">
+    <section class="hero px-[28px] xs:px-[42px] md:px-[64px] xl:px-[94px] pt-[72px] pb-[83px]">
+        <h2 class="text-[42px] sm:text-[64px] leading-[52px] sm:leading-[80px] font-bold text-63-dark-green">
             All Episodes
         </h2>
-        <p class="mt-[24px] text-[24px] leading-[30px] max-w-[540px] text-[#508794]">
+        <p class="mt-[15px] sm:mt-[24px] text-lg sm:text-[24px] leading-[24px] sm:leading-[30px] max-w-[540px] text-[#508794]">
             A podcast about the wellness, healthily living and fitness that brings your vitality to life.
         </p>
         <div class="mt-[48px]">
