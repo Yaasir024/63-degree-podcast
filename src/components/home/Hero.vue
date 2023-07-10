@@ -4,10 +4,10 @@
             <a href="#" class="inline-block">
                 <div class="flex items-center rounded-2xl bg-[#f0f4ed21] p-[4px]">
                     <button
-                        class="border border-white rounded-2xl px-[10px] py-[2px] text-[14px] leading-[20px] font-medium text-white mr-[12px]">Latest
+                        class="border border-white rounded-2xl px-[10px] py-[2px] text-[14px] leading-[20px] font-medium text-white xs:mr-[12px]">Latest
                         Episode</button>
                     <div class="flex items-center">
-                        <span class="text-[14px] leading-[20px] font-medium text-white hidden xs:bloxk">EP01 - Intro to Healthy
+                        <span class="text-[14px] leading-[20px] font-medium text-white hidden xs:block">EP01 - Intro to Healthy
                             Living</span>
                         <svg class="ml-1" width="16" height="16" viewBox="0 0 16 16" fill="none"
                             xmlns="http://www.w3.org/2000/svg">

@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-63-dark-green px-[42px] md:px-[64px] xl:px-[112px] pt-[64px] pb-[48px]">
+    <footer class="bg-63-dark-green  px-[28px] xs:px-[42px] md:px-[64px] xl:px-[96px]  2xl:px-[112px] pt-[64px] pb-[48px]">
         <div class="">
             <RouterLink to="/">
                 <img src="/logo.svg" alt="" class="">

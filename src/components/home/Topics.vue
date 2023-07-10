@@ -1,11 +1,37 @@
 <template>
     <section class="flex flex-wrap">
-        <div class="bg-63-light-green pt-[34px] px-[28px] xs:px-[48px] pb-[52px] relative flex-full md:flex-50% lg:flex-33.33%">
+        <div
+            class="bg-63-light-green pt-[34px] px-[28px] xs:px-[48px] pb-[52px] relative flex-full md:flex-50% lg:flex-33.33%">
             <div class="">
                 <div class="flex items-center">
                     <h3 class="text-[36px] leading-[48px] font-bold text-63-dark-green">
                         Wellness
                     </h3>
+                    <svg class="ml-[24px]" width="36" height="36" viewBox="0 0 36 36" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_23_56648)">
+                            <circle cx="18" cy="18" r="17.5" stroke="#0C584A" />
+                            <g clip-path="url(#clip1_23_56648)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11.4001 18.4C11.4001 17.9858 11.7359 17.65 12.1501 17.65H22.6501C23.0644 17.65 23.4001 17.9858 23.4001 18.4C23.4001 18.8142 23.0644 19.15 22.6501 19.15H12.1501C11.7359 19.15 11.4001 18.8142 11.4001 18.4Z"
+                                    fill="#0C584A" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M23.1805 17.8697C23.4734 18.1626 23.4734 18.6375 23.1805 18.9304L20.1805 21.9304C19.8876 22.2232 19.4127 22.2232 19.1198 21.9304C18.8269 21.6375 18.8269 21.1626 19.1198 20.8697L22.1198 17.8697C22.4127 17.5768 22.8876 17.5768 23.1805 17.8697Z"
+                                    fill="#0C584A" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M19.1198 14.8697C19.4127 14.5768 19.8876 14.5768 20.1805 14.8697L23.1805 17.8697C23.4734 18.1626 23.4734 18.6375 23.1805 18.9304C22.8876 19.2232 22.4127 19.2232 22.1198 18.9304L19.1198 15.9304C18.8269 15.6375 18.8269 15.1626 19.1198 14.8697Z"
+                                    fill="#0C584A" />
+                            </g>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_23_56648">
+                                <rect width="36" height="36" fill="white" />
+                            </clipPath>
+                            <clipPath id="clip1_23_56648">
+                                <rect width="18" height="18" fill="white" transform="translate(8.40039 9.40002)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
                 </div>
                 <p class="mt-[30px] text-[14px] leading-[21px] max-w-[215px] text-[#5E5E5E]">
                     Episodes about practicing healthy habits on a daily basis
@@ -29,6 +55,31 @@
                     <h3 class="text-[36px] leading-[48px] font-bold text-63-dark-green">
                         Healthy Living
                     </h3>
+                    <svg class="ml-[24px]" width="36" height="36" viewBox="0 0 36 36" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_23_56648)">
+                            <circle cx="18" cy="18" r="17.5" stroke="#0C584A" />
+                            <g clip-path="url(#clip1_23_56648)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11.4001 18.4C11.4001 17.9858 11.7359 17.65 12.1501 17.65H22.6501C23.0644 17.65 23.4001 17.9858 23.4001 18.4C23.4001 18.8142 23.0644 19.15 22.6501 19.15H12.1501C11.7359 19.15 11.4001 18.8142 11.4001 18.4Z"
+                                    fill="#0C584A" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M23.1805 17.8697C23.4734 18.1626 23.4734 18.6375 23.1805 18.9304L20.1805 21.9304C19.8876 22.2232 19.4127 22.2232 19.1198 21.9304C18.8269 21.6375 18.8269 21.1626 19.1198 20.8697L22.1198 17.8697C22.4127 17.5768 22.8876 17.5768 23.1805 17.8697Z"
+                                    fill="#0C584A" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M19.1198 14.8697C19.4127 14.5768 19.8876 14.5768 20.1805 14.8697L23.1805 17.8697C23.4734 18.1626 23.4734 18.6375 23.1805 18.9304C22.8876 19.2232 22.4127 19.2232 22.1198 18.9304L19.1198 15.9304C18.8269 15.6375 18.8269 15.1626 19.1198 14.8697Z"
+                                    fill="#0C584A" />
+                            </g>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_23_56648">
+                                <rect width="36" height="36" fill="white" />
+                            </clipPath>
+                            <clipPath id="clip1_23_56648">
+                                <rect width="18" height="18" fill="white" transform="translate(8.40039 9.40002)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
                 </div>
                 <p class="mt-[30px] text-[14px] leading-[21px] max-w-[215px] text-[#5E5E5E]">
                     Episodes about lowering the risk of being seriously ill
@@ -50,6 +101,31 @@
                     <h3 class="text-[36px] leading-[48px] font-bold text-63-dark-green">
                         Body Fitness
                     </h3>
+                    <svg class="ml-[24px]" width="36" height="36" viewBox="0 0 36 36" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_23_56648)">
+                            <circle cx="18" cy="18" r="17.5" stroke="#0C584A" />
+                            <g clip-path="url(#clip1_23_56648)">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11.4001 18.4C11.4001 17.9858 11.7359 17.65 12.1501 17.65H22.6501C23.0644 17.65 23.4001 17.9858 23.4001 18.4C23.4001 18.8142 23.0644 19.15 22.6501 19.15H12.1501C11.7359 19.15 11.4001 18.8142 11.4001 18.4Z"
+                                    fill="#0C584A" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M23.1805 17.8697C23.4734 18.1626 23.4734 18.6375 23.1805 18.9304L20.1805 21.9304C19.8876 22.2232 19.4127 22.2232 19.1198 21.9304C18.8269 21.6375 18.8269 21.1626 19.1198 20.8697L22.1198 17.8697C22.4127 17.5768 22.8876 17.5768 23.1805 17.8697Z"
+                                    fill="#0C584A" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M19.1198 14.8697C19.4127 14.5768 19.8876 14.5768 20.1805 14.8697L23.1805 17.8697C23.4734 18.1626 23.4734 18.6375 23.1805 18.9304C22.8876 19.2232 22.4127 19.2232 22.1198 18.9304L19.1198 15.9304C18.8269 15.6375 18.8269 15.1626 19.1198 14.8697Z"
+                                    fill="#0C584A" />
+                            </g>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_23_56648">
+                                <rect width="36" height="36" fill="white" />
+                            </clipPath>
+                            <clipPath id="clip1_23_56648">
+                                <rect width="18" height="18" fill="white" transform="translate(8.40039 9.40002)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
                 </div>
                 <p class="mt-[30px] text-[14px] leading-[21px] max-w-[215px] text-[#5E5E5E]">
                     Episodes about effective training program for fitness
@@ -64,7 +140,8 @@
                     <path
                         d="M77.2931 17C73.5367 17 70.1373 19.5159 69.058 23.1114L43.562 108.111C41.9303 113.56 46.1031 119 51.7972 119H84.7294L114.475 68L127.758 28.1604C129.585 22.6524 125.591 17 119.786 17C114.475 17 82.6047 17 77.2931 17Z"
                         fill="black" fill-opacity="0.4" />
-            </g>
-        </svg>
-    </div>
-</section></template>
+                </g>
+            </svg>
+        </div>
+    </section>
+</template>
