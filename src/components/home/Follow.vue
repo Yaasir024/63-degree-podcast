@@ -1,10 +1,10 @@
 <template>
-    <section class="py-[96px] bg-[#F9FAFB] flex flex-col items-center justify-center px-[42px] md:px-[64px]">
+    <section class="py-[96px] bg-[#F9FAFB] flex flex-col items-center justify-center px-[28px] xs:px-[42px] md:px-[64px]">
         <span class="text-base font-semibold text-[#508794]">Podcast</span>
         <h3 class="mt-[12px] text-[36px] leading-[44px] font-semibold text-[#101828] text-center">
             Follow us on all channels
         </h3>
-        <p class="text-[20px] leading-[30px] text-[#667085] max-w-[768px] text-center mt-[20px]">
+        <p class="text-lg sm:text-[20px] leading-[30px] text-[#667085] max-w-[768px] text-center mt-[20px]">
             Connect your tools, connect your teams. With over 200 apps already available in our directory, your team’s
             favourite tools are just a click away.
         </p>
