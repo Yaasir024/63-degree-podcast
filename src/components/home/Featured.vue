@@ -22,7 +22,7 @@
             </button>
         </div>
         <div class="mt-[50px] flex flex-wrap items-center justify-center">
-            <div class="md:flex-33.33% px-[14px] mb-3">
+            <div class="flex-full md:flex-[50%] lg:flex-33.33% px-[14px] mb-8 lg:mb-0">
                 <div class="relative">
                     <img src="@/assets/images/podcast/1.png" alt="" class="">
                     <button
@@ -82,7 +82,7 @@
                     Nutrition Tips for Peak Performances with Nimi
                 </h3>
             </div>
-            <div class="md:flex-33.33% px-[14px] mb-3">
+            <div class="flex-full md:flex-[50%] lg:flex-33.33% px-[14px] mb-8 lg:mb-0">
                 <div class="relative">
                     <img src="@/assets/images/podcast/2.png" alt="" class="">
 
@@ -144,7 +144,7 @@
                     Live it Up - Wednesdays
                 </h3>
             </div>
-            <div class="md:flex-33.33% px-[14px] mb-3">
+            <div class="flex-full md:flex-[50%] lg:flex-33.33% px-[14px] mb-8 lg:mb-0">
                 <div class="relative">
                     <img src="@/assets/images/podcast/1.png" alt="" class="">
                     <button
