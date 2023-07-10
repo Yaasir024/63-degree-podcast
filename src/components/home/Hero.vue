@@ -1,3 +1,57 @@
+<script setup>
+import { ref, onMounted } from "vue";
+import { gsap } from "gsap";
+import { TextPlugin } from "gsap/TextPlugin";
+
+const typing = ref(null);
+
+// TGSAP ANIMATION
+onMounted(() => {
+    gsap.registerPlugin(TextPlugin);
+    let tl = gsap.timeline({
+        repeat: -1,
+        defaults: { ease: "back" },
+        
+    });
+    tl.to(typing.value, {
+        text: "vitality",
+        duration: 3,
+        ease: "power1.in",
+        repeat: 1,
+        delay: 1,
+        yoyo: true,
+    })
+        .to(typing.value, {
+            text: "boldness",
+            duration: 3,
+            ease: "power1.in",
+            repeat: 1,
+            yoyo: true,
+        })
+        .to(typing.value, {
+            text: "strength",
+            duration: 3,
+            ease: "power1.in",
+            repeat: 1,
+            yoyo: true,
+        })
+        .to(typing.value, {
+            text: "vigour",
+            duration: 3,
+            ease: "power1.in",
+            repeat: 1,
+            yoyo: true,
+        })
+        .to(typing.value, {
+            text: "fortitude",
+            duration: 3,
+            ease: "power1.in",
+            repeat: 1,
+            yoyo: true,
+        });
+});
+</script>
+
 <template>
     <section class="hero min-h-screen px-[28px] xs:px-[42px] md:px-[64px] xl:px-[96px] pt-[72px] flex">
         <div class="xl:shrink-0">
@@ -7,7 +61,8 @@
                         class="border border-white rounded-2xl px-[10px] py-[2px] text-[14px] leading-[20px] font-medium text-white xs:mr-[12px]">Latest
                         Episode</button>
                     <div class="flex items-center">
-                        <span class="text-[14px] leading-[20px] font-medium text-white hidden xs:block">EP01 - Intro to Healthy
+                        <span class="text-[14px] leading-[20px] font-medium text-white hidden xs:block">EP01 - Intro to
+                            Healthy
                             Living</span>
                         <svg class="ml-1" width="16" height="16" viewBox="0 0 16 16" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -20,10 +75,19 @@
             </a>
             <div class="mt-[16px]">
                 <h1 class="text-[42px] sm:text-[64px] leading-[52px] sm:leading-[80px] font-bold max-w-[560px] text-white">
-                    Discover the Path to Healthy Living
+                    Unlocking secrets to a vibrant life that radiates <span class="font-bold" ref="typing"></span> 
+                    <!-- <span class="inline-block overflow-hidden h-[1em]">
+                        <span class="text-carousel block mb-[0.1em]">
+                            <span class="block mb-[0.1em] text-[1em] leading-[.9em] font-bold">vitality</span>
+                            <span class="block mb-[0.1em] text-[1em] leading-[.9em] font-bold">boldness</span>
+                            <span class="block mb-[0.1em] text-[1em] leading-[.9em] font-bold">strength</span>
+                            <span class="block mb-[0.1em] text-[1em] leading-[.9em] font-bold">vigour</span>
+                            <span class="block mb-[0.1em] text-[1em] leading-[.9em] font-bold">fortitude</span>
+                        </span>
+                    </span> -->
                 </h1>
                 <p class="text-[18px] sm:text-[24px] leading-[26px] sm:leading-[30px] text-white mt-[24px] max-w-[540px]">
-                    A podcast about the wellness, healthily living and fitness that brings your vitality to life.
+                    An unfiltered journey into the exciting world of fitness, wellness, and healthy living
                 </p>
             </div>
             <div class="mt-[48px] xs:flex xs:items-center flex-col xs:flex-row">
@@ -107,6 +171,7 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .btn {
     transition: all .3s ease-in-out;
 }
@@ -114,4 +179,80 @@
 .btn:hover {
     transform: scale(1.02);
 }
-</style>
+
+.text-carousel {
+    position: relative;
+    animation: moveUpAndDown 20s infinite;
+}
+
+@keyframes moveUpAndDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    5%,
+    10% {
+        transform: translateY(-1em);
+    }
+
+    15%,
+    20% {
+        transform: translateY(-2em);
+    }
+
+    25%,
+    30% {
+        transform: translateY(-3em);
+    }
+
+    35%,
+    40% {
+        transform: translateY(-4em);
+    }
+
+    45%,
+    50% {
+        transform: translateY(-5em);
+    }
+
+    55%,
+    60% {
+        transform: translateY(-4em);
+    }
+
+    65%,
+    70% {
+        transform: translateY(-3em);
+    }
+
+    75%,
+    80% {
+        transform: translateY(-2em);
+    }
+
+    85%,
+    90% {
+        transform: translateY(-1em);
+    }
+
+    95%,
+    100% {
+        transform: translateY(0);
+    }
+
+    /* 0%,
+    20%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40%,
+    60% {
+        transform: translateY(-1em);
+    }
+
+    50% {
+        transform: translateY(0);
+    } */
+}</style>

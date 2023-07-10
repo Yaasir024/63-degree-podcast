@@ -5,9 +5,16 @@
                 <img src="@/assets/images/home/about.png" alt="" class="">
             </div>
             <div class="flex-full lg:flex-50%  py-[40px]">
-                <h3 class="text-[32px] md:text-[48px] leading-[38px] md:leading-[60px] font-semibold text-[#6AE6D4]">
-                    Meet Yvonne Marcus
-                </h3>
+                <div class="max-w-[575px]">
+                    <p class="text-[24px] sm:text-[28px] leading-[35px] font-semibold italic text-63-light-green">
+                        “ When health is absent, wisdom cannot reveal itself, art cannot manifest, strength cannot fight,
+                        wealth
+                        becomes useless, and intelligence cannot be applied”
+                    </p>
+                    <h4 class="text-[20px] sm:text-[26px] leading-[32px] font-semibold text-[#E48B46] mt-12">
+                        - Herophilus
+                    </h4>
+                </div>
 
                 <div
                     class="mt-[24px] text-base sm:text-[18px] md:text-[24px] leading-[26px] sm:leading-[30px] lg:max-w-[480px] text-[#F2F2F2]">
