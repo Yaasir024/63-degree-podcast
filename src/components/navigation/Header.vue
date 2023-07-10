@@ -11,7 +11,7 @@
                             <RouterLink to="/" class="font-medium">Home</RouterLink>
                         </li>
                         <li class=" text-[16px] leading-[24px] mr-[32px]">
-                            <RouterLink to="/" class="font-medium">
+                            <RouterLink to="/all-episodes" class="font-medium">
                                 <div class="flex items-center">
                                     <span class="mr-2">Episodes</span>
                                     <svg width="12" height="8" viewBox="0 0 12 8" fill="none"
