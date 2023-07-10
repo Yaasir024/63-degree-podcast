@@ -1,12 +1,25 @@
 <template>
-    <section class="pt-[118px] pb-[85px] px-[42px] md:px-[64px] xl:px-[96px]">
+    <section class="pt-[118px] pb-[85px] px-[28px] xs:px-[42px] md:px-[64px] xl:px-[96px]">
         <div class="flex items-center justify-between">
-            <h3 class="text-[48px] leading-[65px] font-bold text-[#16363F]">
+            <h3 class="text-[34px] md:text-[48px] leading-[48px] md:leading-[65px] font-bold text-[#16363F]">
                 Featured Episodes
             </h3>
             <button
-                class="bg-63-light-green text-63-dark-green rounded-lg px-[20px] py-[12px] text-[18px] leading-[24px] font-semibold">Show
-                All</button>
+                class="hidden xs:flex items-center bg-63-light-green text-63-dark-green rounded-lg px-[20px] py-[12px] text-[18px] leading-[24px] font-semibold">
+                <span class="font-semibold mr-2">Show
+                    All</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M3.33325 9.99996C3.33325 9.53972 3.70635 9.16663 4.16659 9.16663H15.8333C16.2935 9.16663 16.6666 9.53972 16.6666 9.99996C16.6666 10.4602 16.2935 10.8333 15.8333 10.8333H4.16659C3.70635 10.8333 3.33325 10.4602 3.33325 9.99996Z"
+                        fill="#16363F" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16.4224 9.4107C16.7479 9.73614 16.7479 10.2638 16.4224 10.5892L13.0891 13.9225C12.7637 14.248 12.236 14.248 11.9106 13.9225C11.5851 13.5971 11.5851 13.0695 11.9106 12.744L15.2439 9.4107C15.5694 9.08527 16.097 9.08527 16.4224 9.4107Z"
+                        fill="#16363F" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M11.9106 6.07739C12.236 5.75195 12.7637 5.75195 13.0891 6.07739L16.4224 9.41072C16.7479 9.73616 16.7479 10.2638 16.4224 10.5892C16.097 10.9147 15.5694 10.9147 15.2439 10.5892L11.9106 7.2559C11.5851 6.93046 11.5851 6.40283 11.9106 6.07739Z"
+                        fill="#16363F" />
+                </svg>
+            </button>
         </div>
         <div class="mt-[50px] flex flex-wrap items-center justify-center">
             <div class="md:flex-33.33% px-[14px] mb-3">
@@ -191,5 +204,27 @@
                     Nutrition Tips for Peak Performances with Nimi
                 </h3>
             </div>
-    </div>
-</section></template>
+        </div>
+
+        <div class="mt-10 flex xs:hidden items-center justify-center">
+            <RouterLink to="/episodes">
+                <button
+                class="flex items-center bg-63-light-green text-63-dark-green rounded-lg px-[20px] py-[12px] text-[18px] leading-[24px] font-semibold">
+                <span class="font-semibold mr-2">Show
+                    All</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M3.33325 9.99996C3.33325 9.53972 3.70635 9.16663 4.16659 9.16663H15.8333C16.2935 9.16663 16.6666 9.53972 16.6666 9.99996C16.6666 10.4602 16.2935 10.8333 15.8333 10.8333H4.16659C3.70635 10.8333 3.33325 10.4602 3.33325 9.99996Z"
+                        fill="#16363F" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16.4224 9.4107C16.7479 9.73614 16.7479 10.2638 16.4224 10.5892L13.0891 13.9225C12.7637 14.248 12.236 14.248 11.9106 13.9225C11.5851 13.5971 11.5851 13.0695 11.9106 12.744L15.2439 9.4107C15.5694 9.08527 16.097 9.08527 16.4224 9.4107Z"
+                        fill="#16363F" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M11.9106 6.07739C12.236 5.75195 12.7637 5.75195 13.0891 6.07739L16.4224 9.41072C16.7479 9.73616 16.7479 10.2638 16.4224 10.5892C16.097 10.9147 15.5694 10.9147 15.2439 10.5892L11.9106 7.2559C11.5851 6.93046 11.5851 6.40283 11.9106 6.07739Z"
+                        fill="#16363F" />
+                </svg>
+            </button>
+            </RouterLink>
+        </div>
+    </section>
+</template>
