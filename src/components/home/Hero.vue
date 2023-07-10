@@ -28,7 +28,7 @@
             </div>
             <div class="mt-[48px] xs:flex xs:items-center flex-col xs:flex-row">
                 <button
-                    class="xs:mr-[16px] bg-63-light-green text-63-dark-green rounded-lg px-[20px] py-[12px] text-[18px] leading-[24px] font-semibold flex items-center">
+                    class="btn xs:mr-[16px] bg-63-light-green text-63-dark-green rounded-lg px-[20px] py-[12px] text-[18px] leading-[24px] font-semibold flex items-center">
                     <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M0.166504 2.16666V13.8333C0.168411 14.1053 0.236825 14.3726 0.365776 14.612C0.494728 14.8514 0.6803 15.0556 0.906306 15.2068C1.13231 15.3581 1.39188 15.4517 1.66238 15.4795C1.93288 15.5074 2.20609 15.4686 2.45817 15.3667L12.6665 9.45C12.927 9.30586 13.1441 9.09458 13.2953 8.83812C13.4466 8.58166 13.5263 8.28938 13.5263 7.99166C13.5263 7.69394 13.4466 7.40166 13.2953 7.1452C13.1441 6.88874 12.927 6.67746 12.6665 6.53333L2.45817 0.616662C2.21186 0.516613 1.94518 0.47694 1.68041 0.500954C1.41564 0.524968 1.16046 0.611973 0.936168 0.754705C0.711874 0.897437 0.52498 1.09175 0.391088 1.32143C0.257196 1.55111 0.180192 1.80949 0.166504 2.075"
@@ -37,7 +37,7 @@
                     <span class="ml-2 font-semibold">Listen to 63 Degree Podcast</span>
                 </button>
                 <button
-                    class="mt-2 xs:mt-0 bg-[#E48B46] text-white rounded-lg px-[20px] py-[12px] text-[18px] leading-[24px] font-semibold flex items-center">
+                    class="btn mt-2 xs:mt-0 bg-[#E48B46] text-white rounded-lg px-[20px] py-[12px] text-[18px] leading-[24px] font-semibold flex items-center">
                     Apple Podcast
                 </button>
             </div>
@@ -106,5 +106,12 @@
     background-image: url(./../../assets/images/home/hero.svg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+.btn {
+    transition: all .3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.02);
 }
 </style>

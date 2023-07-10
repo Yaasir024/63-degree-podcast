@@ -5,8 +5,7 @@
             Follow us on all channels
         </h3>
         <p class="text-lg sm:text-[20px] leading-[30px] text-[#667085] max-w-[768px] text-center mt-[20px]">
-            Connect your tools, connect your teams. With over 200 apps already available in our directory, your team’s
-            favourite tools are just a click away.
+            Join us as we dive deep into thought-provoking discussions about wellness and healthy living that are both educational and engaging.
         </p>
         <div class="flex items-center mt-[64px] flex-wrap justify-center">
             <svg class="mr-[32px]" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">

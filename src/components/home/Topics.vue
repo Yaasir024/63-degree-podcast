@@ -1,13 +1,13 @@
 <template>
     <section class="flex flex-wrap">
         <div
-            class="bg-63-light-green pt-[34px] px-[28px] xs:px-[48px] pb-[52px] relative flex-full md:flex-50% lg:flex-33.33%">
+            class="card bg-63-light-green pt-[34px] px-[28px] xs:px-[48px] pb-[52px] relative flex-full md:flex-50% lg:flex-33.33%">
             <div class="">
                 <div class="flex items-center">
                     <h3 class="text-[36px] leading-[48px] font-bold text-63-dark-green">
                         Wellness
                     </h3>
-                    <svg class="ml-[24px]" width="36" height="36" viewBox="0 0 36 36" fill="none"
+                    <svg class="arr ml-[24px]" width="36" height="36" viewBox="0 0 36 36" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_23_56648)">
                             <circle cx="18" cy="18" r="17.5" stroke="#0C584A" />
@@ -49,13 +49,13 @@
                 </g>
             </svg>
         </div>
-        <div class="bg-[#FCF0BD] pt-[34px] px-[28px] xs:px-[48px] pb-[52px] relative flex-full md:flex-50% lg:flex-33.33%">
+        <div class="card bg-[#FCF0BD] pt-[34px] px-[28px] xs:px-[48px] pb-[52px] relative flex-full md:flex-50% lg:flex-33.33%">
             <div class="">
                 <div class="flex items-center">
                     <h3 class="text-[36px] leading-[48px] font-bold text-63-dark-green">
                         Healthy Living
                     </h3>
-                    <svg class="ml-[24px]" width="36" height="36" viewBox="0 0 36 36" fill="none"
+                    <svg class="arr ml-[24px]" width="36" height="36" viewBox="0 0 36 36" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_23_56648)">
                             <circle cx="18" cy="18" r="17.5" stroke="#0C584A" />
@@ -95,13 +95,13 @@
                 </g>
             </svg>
         </div>
-        <div class="bg-[#FFAE6F] pt-[34px] px-[28px] xs:px-[48px] pb-[52px] relative flex-full lg:flex-33.33%">
+        <div class="card bg-[#FFAE6F] pt-[34px] px-[28px] xs:px-[48px] pb-[52px] relative flex-full lg:flex-33.33%">
             <div class="">
                 <div class="flex items-center">
                     <h3 class="text-[36px] leading-[48px] font-bold text-63-dark-green">
                         Body Fitness
                     </h3>
-                    <svg class="ml-[24px]" width="36" height="36" viewBox="0 0 36 36" fill="none"
+                    <svg class="arr ml-[24px]" width="36" height="36" viewBox="0 0 36 36" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_23_56648)">
                             <circle cx="18" cy="18" r="17.5" stroke="#0C584A" />
@@ -145,3 +145,13 @@
         </div>
     </section>
 </template>
+
+<style scoped>
+.arr {
+    transition: all .3s ease-in-out;
+}
+
+.card:hover .arr {
+    transform: rotate(30deg);
+}
+</style>
