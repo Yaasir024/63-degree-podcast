@@ -16,7 +16,7 @@ import Footer from '@/components/navigation/Footer.vue';
                             d="M6.45079 4.5358L2.21079 0.295798C2.11783 0.20207 2.00723 0.127675 1.88537 0.0769067C1.76351 0.026138 1.6328 0 1.50079 0C1.36878 0 1.23807 0.026138 1.11622 0.0769067C0.994356 0.127675 0.883755 0.20207 0.790792 0.295798C0.604542 0.483161 0.5 0.736612 0.5 1.0008C0.5 1.26498 0.604542 1.51844 0.790792 1.7058L4.33079 5.2458L0.790792 8.7858C0.604542 8.97316 0.5 9.22661 0.5 9.4908C0.5 9.75498 0.604542 10.0084 0.790792 10.1958C0.884233 10.2885 0.995049 10.3618 1.11689 10.4116C1.23872 10.4613 1.36919 10.4866 1.50079 10.4858C1.6324 10.4866 1.76286 10.4613 1.8847 10.4116C2.00654 10.3618 2.11735 10.2885 2.21079 10.1958L6.45079 5.9558C6.54452 5.86283 6.61891 5.75223 6.66968 5.63037C6.72045 5.50852 6.74659 5.37781 6.74659 5.2458C6.74659 5.11379 6.72045 4.98308 6.66968 4.86122C6.61891 4.73936 6.54452 4.62876 6.45079 4.5358Z"
                             fill="black" fill-opacity="0.3" />
                     </svg>
-                    <span class="ml-[10px] text-base sm:text-[18px] leading-[20px] font-medium text-black">Nutrition Tips for Peak
+                    <span class="ml-[10px] text-base sm:text-[18px] leading-[20px] font-medium text-black truncate">Nutrition Tips for Peak
                         Performances with Nimi</span>
                 </div>
                 <h2 class="mt-[16px] text-[48px] leading-[52px] sm:leading-[60px] font-bold text-63-dark-green max-w-[800px]">
@@ -36,7 +36,7 @@ import Footer from '@/components/navigation/Footer.vue';
 
             </div>
         </section>
-        <div class="px-[95px] pt-[38px] pb-[180px]">
+        <div class="px-[28px] xs:px-[42px] md:px-[64px] xl:px-[95px] pt-[38px] pb-[180px]">
             <section class="">
                 <div class="flex items-center">
                     <button class="flex items-center mr-[16px] rounded-lg bg-[#3789FC] px-[7px] py-[4px]">
@@ -80,22 +80,22 @@ import Footer from '@/components/navigation/Footer.vue';
                 <div class="mt-[75px]">
                     <span class="text-[18px] leading-[20px] font-medium text-black/30">Episode Description</span>
                     <div class="mt-[30px]">
-                        <p class="text-[24px] leading-[32px] text-black max-w-[1220px] mb-4">
+                        <p class="text-lg xs:text-[24px] leading-[26px] xs:leading-[32px] text-black max-w-[1220px] mb-4">
                             Simply put, it means you spend time crafting stories in your head about what other people should
                             do.
                         </p>
-                        <p class="text-[24px] leading-[32px] text-black max-w-[1220px] mb-4">
+                        <p class="text-lg xs:text-[24px] leading-[26px] xs:leading-[32px] text-black max-w-[1220px] mb-4">
                             And when they inevitably fail to live up to those standards, you reflexively compare reality to
                             those
                             expectations and feel frustrated and disappointed.
                         </p>
-                        <p class="text-[24px] leading-[32px] text-black max-w-[1220px] mb-4">
+                        <p class="text-lg xs:text-[24px] leading-[26px] xs:leading-[32px] text-black max-w-[1220px] mb-4">
                             And how do you respond to this frustration and disappointment? By creating even stronger and
                             more
                             elaborate
                             expectations, because it makes you feel good and in control!
                         </p>
-                        <p class="text-[24px] leading-[32px] text-black max-w-[1220px] mb-4">
+                        <p class="text-lg xs:text-[24px] leading-[26px] xs:leading-[32px] text-black max-w-[1220px] mb-4">
                             Look, of course you care about the people in your life and want the best for them. And it pains
                             you
                             to
@@ -184,8 +184,8 @@ import Footer from '@/components/navigation/Footer.vue';
                 </div>
             </section>
             <div class="mt-[100px] border-t-2 border-black/5 pt-[35px] flex items-center">
-                <div class="flex-50% flex items-center border-r border-black/5">
-                    <svg class="mr-[30px]" width="80" height="80" viewBox="0 0 80 80" fill="none"
+                <div class="flex-50% flex items-center border-r border-black/5 pr-5">
+                    <svg class="hidden md:block mr-[12px] 2xl:mr-[30px]" width="80" height="80" viewBox="0 0 80 80" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_23_67403)">
                             <circle cx="40" cy="40" r="40" transform="matrix(-1 0 0 1 80 0)" fill="white"
@@ -213,14 +213,14 @@ import Footer from '@/components/navigation/Footer.vue';
                             </clipPath>
                         </defs>
                     </svg>
-                    <h3 class="text-[20px] leading-[24px] font-medium text-black max-w-[480px]">№53 — A Non-Artsy Guide to
+                    <h3 class="text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">№53 — A Non-Artsy Guide to
                         Creating Beautiful
                         Apps and Sites</h3>
                 </div>
-                <div class="flex-50% flex items-center justify-end border-l border-black/5">
-                    <h3 class="text-[20px] leading-[24px] font-medium text-black max-w-[480px]">№55 — Why The Rise of Colon
+                <div class="flex-50% flex items-center justify-end border-l border-black/5 pl-5">
+                    <h3 class="text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">№55 — Why The Rise of Colon
                         Cancer In Young People Is Puzzling Doctors</h3>
-                    <svg class="ml-[30px]" width="80" height="80" viewBox="0 0 80 80" fill="none"
+                    <svg class="hidden md:block ml-[12px] 2xl:ml-[30px]" width="80" height="80" viewBox="0 0 80 80" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_23_67402)">
                             <circle cx="40" cy="40" r="40" fill="white" fill-opacity="0.1" />
