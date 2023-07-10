@@ -7,31 +7,37 @@ import Footer from '@/components/navigation/Footer.vue';
 <template>
     <main class="">
         <Header />
-        <section class="hero px-[28px] xs:px-[42px] md:px-[64px] xl:px-[94px] pt-[72px] pb-[83px]">
-            <div class="">
-                <div class="flex items-center">
-                    <span class="mr-[10px] text-base sm:text-[18px] leading-[20px] font-medium text-black/30 shrink-0">All podcasts</span>
-                    <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M6.45079 4.5358L2.21079 0.295798C2.11783 0.20207 2.00723 0.127675 1.88537 0.0769067C1.76351 0.026138 1.6328 0 1.50079 0C1.36878 0 1.23807 0.026138 1.11622 0.0769067C0.994356 0.127675 0.883755 0.20207 0.790792 0.295798C0.604542 0.483161 0.5 0.736612 0.5 1.0008C0.5 1.26498 0.604542 1.51844 0.790792 1.7058L4.33079 5.2458L0.790792 8.7858C0.604542 8.97316 0.5 9.22661 0.5 9.4908C0.5 9.75498 0.604542 10.0084 0.790792 10.1958C0.884233 10.2885 0.995049 10.3618 1.11689 10.4116C1.23872 10.4613 1.36919 10.4866 1.50079 10.4858C1.6324 10.4866 1.76286 10.4613 1.8847 10.4116C2.00654 10.3618 2.11735 10.2885 2.21079 10.1958L6.45079 5.9558C6.54452 5.86283 6.61891 5.75223 6.66968 5.63037C6.72045 5.50852 6.74659 5.37781 6.74659 5.2458C6.74659 5.11379 6.72045 4.98308 6.66968 4.86122C6.61891 4.73936 6.54452 4.62876 6.45079 4.5358Z"
-                            fill="black" fill-opacity="0.3" />
-                    </svg>
-                    <span class="ml-[10px] text-base sm:text-[18px] leading-[20px] font-medium text-black truncate">Nutrition Tips for Peak
-                        Performances with Nimi</span>
-                </div>
-                <h2 class="mt-[16px] text-[48px] leading-[52px] sm:leading-[60px] font-bold text-63-dark-green max-w-[800px]">
-                    Nutrition Tips for Peak Performances with Nimi
-                </h2>
-                <div class="mt-[16px]">
-                    <button
-                        class="xs:mr-[16px] bg-63-dark-green text-63-light-green rounded-lg px-[20px] py-[12px] text-[18px] leading-[24px] font-semibold flex items-center">
-                        <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <section class="hero px-[28px] xs:px-[42px] md:px-[64px] xl:px-[94px] pt-[72px] ">
+            <div class="flex">
+                <div class="pb-[83px]">
+                    <div class="flex items-center">
+                        <span class="mr-[10px] text-base sm:text-[18px] leading-[20px] font-medium text-black/30 shrink-0">All podcasts</span>
+                        <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
-                                d="M0.879639 1.88016V13.0251C0.881461 13.2848 0.946815 13.5402 1.07 13.7689C1.19318 13.9976 1.37046 14.1927 1.58635 14.3371C1.80225 14.4816 2.05022 14.571 2.30862 14.5976C2.56702 14.6243 2.82801 14.5872 3.06882 14.4898L12.8206 8.83776C13.0695 8.70008 13.2769 8.49825 13.4213 8.25326C13.5658 8.00826 13.6419 7.72905 13.6419 7.44465C13.6419 7.16025 13.5658 6.88104 13.4213 6.63605C13.2769 6.39106 13.0695 6.18922 12.8206 6.05154L3.06882 0.399482C2.83352 0.303908 2.57877 0.266009 2.32584 0.288949C2.07291 0.311889 1.82914 0.395003 1.61488 0.531352C1.40062 0.6677 1.22208 0.853327 1.09418 1.07274C0.966275 1.29214 0.892715 1.53896 0.879639 1.79259"
-                                fill="white" />
+                                d="M6.45079 4.5358L2.21079 0.295798C2.11783 0.20207 2.00723 0.127675 1.88537 0.0769067C1.76351 0.026138 1.6328 0 1.50079 0C1.36878 0 1.23807 0.026138 1.11622 0.0769067C0.994356 0.127675 0.883755 0.20207 0.790792 0.295798C0.604542 0.483161 0.5 0.736612 0.5 1.0008C0.5 1.26498 0.604542 1.51844 0.790792 1.7058L4.33079 5.2458L0.790792 8.7858C0.604542 8.97316 0.5 9.22661 0.5 9.4908C0.5 9.75498 0.604542 10.0084 0.790792 10.1958C0.884233 10.2885 0.995049 10.3618 1.11689 10.4116C1.23872 10.4613 1.36919 10.4866 1.50079 10.4858C1.6324 10.4866 1.76286 10.4613 1.8847 10.4116C2.00654 10.3618 2.11735 10.2885 2.21079 10.1958L6.45079 5.9558C6.54452 5.86283 6.61891 5.75223 6.66968 5.63037C6.72045 5.50852 6.74659 5.37781 6.74659 5.2458C6.74659 5.11379 6.72045 4.98308 6.66968 4.86122C6.61891 4.73936 6.54452 4.62876 6.45079 4.5358Z"
+                                fill="black" fill-opacity="0.3" />
                         </svg>
-                        <span class="ml-2 font-semibold">Listen to this episode</span>
-                    </button>
+                        <span class="ml-[10px] text-base sm:text-[18px] leading-[20px] font-medium text-black truncate">Nutrition Tips for Peak
+                            Performances with Nimi</span>
+                    </div>
+                    <h2 class="mt-[16px] text-[48px] leading-[52px] sm:leading-[60px] font-bold text-63-dark-green max-w-[800px]">
+                        Nutrition Tips for Peak Performances with Nimi
+                    </h2>
+                    <div class="mt-[16px]">
+                        <button
+                            class="xs:mr-[16px] bg-63-dark-green text-63-light-green rounded-lg px-[20px] py-[12px] text-[18px] leading-[24px] font-semibold flex items-center">
+                            <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0.879639 1.88016V13.0251C0.881461 13.2848 0.946815 13.5402 1.07 13.7689C1.19318 13.9976 1.37046 14.1927 1.58635 14.3371C1.80225 14.4816 2.05022 14.571 2.30862 14.5976C2.56702 14.6243 2.82801 14.5872 3.06882 14.4898L12.8206 8.83776C13.0695 8.70008 13.2769 8.49825 13.4213 8.25326C13.5658 8.00826 13.6419 7.72905 13.6419 7.44465C13.6419 7.16025 13.5658 6.88104 13.4213 6.63605C13.2769 6.39106 13.0695 6.18922 12.8206 6.05154L3.06882 0.399482C2.83352 0.303908 2.57877 0.266009 2.32584 0.288949C2.07291 0.311889 1.82914 0.395003 1.61488 0.531352C1.40062 0.6677 1.22208 0.853327 1.09418 1.07274C0.966275 1.29214 0.892715 1.53896 0.879639 1.79259"
+                                    fill="white" />
+                            </svg>
+                            <span class="ml-2 font-semibold">Listen to this episode</span>
+                        </button>
+                    </div>
+    
+                </div>
+                <div class="max-w-[500px] hidden 2xl:block">
+                    <img src="@/assets/images/episode/current.png" alt="" class="w-full ">
                 </div>
 
             </div>
