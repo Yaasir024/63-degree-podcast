@@ -26,7 +26,7 @@
                     A podcast about the wellness, healthily living and fitness that brings your vitality to life.
                 </p>
             </div>
-            <div class="mt-[48px] flex items-center flex-col xs:flex-row">
+            <div class="mt-[48px] xs:flex xs:items-center flex-col xs:flex-row">
                 <button
                     class="xs:mr-[16px] bg-63-light-green text-63-dark-green rounded-lg px-[20px] py-[12px] text-[18px] leading-[24px] font-semibold flex items-center">
                     <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
