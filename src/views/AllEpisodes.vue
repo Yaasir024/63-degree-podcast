@@ -51,7 +51,7 @@ const menuOption = [
                 <div class="" v-for="n in 8" :key="n">
                     <RouterLink to="/episode">
                         <div class="card flex flex-col sm:flex-row mb-[48px]">
-                            <div class="relative 2xl:max-w-[300px] 2xl:mr-[40px]">
+                            <div class="relative sm:max-w-[300px] sm:mr-[40px]">
                                 <img src="@/assets/images/podcast/1.png" alt="" class="w-full">
         
                             </div>
