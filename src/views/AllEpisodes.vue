@@ -33,9 +33,9 @@ const menuOption = [
             </button>
         </div>
     </section>
-    <section class="px-[46px] md:px-[72px] lg:px-[95px] pt-[78px] pb-[280px]">
-        <div class="nav flex overflow-x-auto">
-            <div class=" flex items-center bg-[#F9FAFB] rounded-[10px] p-[7px]">
+    <section class="px-[28px] xs:px-[46px] md:px-[72px] lg:px-[95px] pt-[78px] pb-[280px]">
+        <div class="flex ">
+            <div class="nav flex items-center bg-[#F9FAFB] rounded-[10px] p-[7px] overflow-x-auto">
                 <button
                     class="py-[12px] px-[17px] rounded-[7px] text-[16px] leading-[24px] font-medium capitalize transition-all duration-200 ease-in shrink-0"
                     v-for="option in menuOption" :key="option"
@@ -51,8 +51,8 @@ const menuOption = [
                 <div class="" v-for="n in 8" :key="n">
                     <RouterLink to="/episode">
                         <div class="card flex flex-col sm:flex-row mb-[48px]">
-                            <div class="relative sm:max-w-[300px] sm:mr-[40px]">
-                                <img src="@/assets/images/podcast/1.png" alt="" class="w-full">
+                            <div class="relative sm:max-w-[300px] sm:mr-[40px] overflow-hidden rounded-[7px]">
+                                <img src="@/assets/images/podcast/1.png" alt="" class="w-full img">
         
                             </div>
                             <div class="">
@@ -201,5 +201,13 @@ const menuOption = [
 }
 .nav::-webkit-scrollbar {
     display: none;
+}
+
+.img {
+    transition: all .1s ease-in-out;
+}
+
+.card:hover .img {
+    transform: scale(1.02);
 }
 </style>
