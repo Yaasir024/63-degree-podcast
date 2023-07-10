@@ -22,25 +22,25 @@ const menuOption = [
             Sixty Three Degree’s mission is to make your living more healthy — from habits to long life.
         </p>
     </section>
-    <section class="pl-[46px] pr-[46px] md:pl-[72px] md:pr-[72px] lg:pl-[95px] lg:pr-[95px] xl:pr-0 pb-[280px] flex flex-wrap">
+    <section class="px-[28px] xs:pl-[46px] xs:pr-[46px] md:pl-[72px] md:pr-[72px] lg:pl-[95px] lg:pr-[95px] xl:pr-0 pb-[280px] flex flex-wrap">
         <div class="flex-full xl:flex-50% pt-[90px]">
-            <div class="flex">
-                <div class="flex-[50%]">
+            <div class="flex flex-wrap">
+                <div class="flex-full xs:flex-[50%]">
                     <span class="text-[17px] leading-[26px] text-black/30">Number</span>
-                    <p class="mt-[6px] text-[23px] leading-[28px] font-semibold">
+                    <p class="mt-[6px] text-[20px] sm:text-[23px] leading-[28px] font-semibold">
                         (603) 555-0123
                     </p>
                 </div>
-                <div class="flex-[50%]">
+                <div class="flex-full xs:flex-[50%]">
                     <span class="text-[17px] leading-[26px] text-black/30">Email</span>
-                    <p class="mt-[6px] text-[23px] leading-[28px] font-semibold">
+                    <p class="mt-[6px] text-[20px] sm:text-[23px] leading-[28px] font-semibold">
                         prequel@hello.com
                     </p>
                 </div>
             </div>
             <div class="mt-[34px]">
                 <span class="text-[17px] leading-[26px] text-black/30">Address</span>
-                <p class="mt-[6px] text-[23px] leading-[28px] font-semibold">
+                <p class="mt-[6px] text-[20px] sm:text-[23px] leading-[28px] font-semibold">
                     2464 Royal Ln. Mesa, New Jersey 45463
                 </p>
             </div>

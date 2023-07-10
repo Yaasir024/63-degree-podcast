@@ -7,7 +7,7 @@ const closeOnRoute = () => {
 </script>
 
 <template>
-    <div class="w-[80vh] sm:w-[50vh] h-screen fixed top-0 bottom-0 right-0 bg-63-dark-green z-[100]">
+    <div class="w-screen xs:w-[80vh] sm:w-[50vh] h-screen fixed top-0 bottom-0 right-0 bg-63-dark-green z-[100]">
         <div class="flex items-center justify-end py-3 px-4">
             <button class="text-white" @click="$emit('close')">
                 <svg width="24" height="24" fill="currentColor" clip-rule="evenodd" fill-rule="evenodd"
