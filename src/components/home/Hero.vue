@@ -75,7 +75,7 @@ onMounted(() => {
             </a>
             <div class="mt-[16px]">
                 <h1 class="text-[42px] sm:text-[64px] leading-[52px] sm:leading-[80px] font-bold max-w-[575px] text-white">
-                    Unlocking secrets to a vibrant life that radiates <span class="block sm:hidden mb-[0.1em] font-bold text-[#F8D959]">vitality</span>
+                    Unlocking secrets to a vibrant life that radiates <span class="inline sm:hidden mb-[0.1em] font-bold text-[#F8D959]">vitality</span>
                     <span class="hidden sm:inline-block overflow-hidden h-[1.08em] leading-[0.9em]">
                         <span class="text-carousel relative block mb-[0.1em] text-[#F8D959]">
                             <span class="block mb-[0.1em] font-bold">vitality</span>
