@@ -71,9 +71,17 @@ onMounted(() => {
                 </div>
             </a>
             <div class="mt-[16px]">
-                <h1 class="text-[37px] 2xs:text-[42px] sm:text-[64px] leading-[45px] 3xs:leading-[52px] sm:leading-[80px] font-bold max-w-[325px] 3xs:max-w-[480px] sm:max-w-[560px] text-white">
-                    Unlocking secrets to a vibrant life that radiates <span class="block 2xs:inline-block font-bold text-[#F8D959]" ref="typing"></span>
-                    
+                <h1 class="text-[37px] 3xs:text-[42px] sm:text-[64px] leading-[45px] 3xs:leading-[52px] sm:leading-[80px] font-bold max-w-[575px] text-white">
+                    Unlocking secrets to a vibrant life that radiates <span class="hidden sm:hidden mb-[0.1em] font-bold text-[#F8D959]">vitality</span>
+                    <span class="inline-block sm:inline-block overflow-hidden h-[1.04em] sm:h-[1.08em] leading-[0.9em]">
+                        <span class="text-carousel relative block mb-[0.1em] text-[#F8D959]">
+                            <span class="block mb-[0.1em] font-bold">vitality</span>
+                            <span class="block mb-[0.1em] font-bold">boldness</span>
+                            <span class="block mb-[0.1em] font-bold">strength</span>
+                            <span class="block mb-[0.1em] font-bold">vigour</span>
+                            <span class="block mb-[0.1em] font-bold">fortitude</span>
+                        </span>
+                    </span>
                 </h1>
                 <p class="text-base xs:text-[18px] sm:text-[24px] leading-[22px] xs:leading-[26px] sm:leading-[30px] text-white mt-[24px] max-w-[540px]">
                     An unfiltered journey into the exciting world of fitness, wellness, and healthy living
@@ -151,15 +159,7 @@ onMounted(() => {
     </section>
 </template>
 
-<!-- <span class="inline-block sm:inline-block overflow-hidden h-[1.04em] sm:h-[1.08em] leading-[0.9em]">
-    <span class="text-carousel relative block mb-[0.1em] text-[#F8D959]">
-        <span class="block mb-[0.1em] font-bold">vitality</span>
-        <span class="block mb-[0.1em] font-bold">boldness</span>
-        <span class="block mb-[0.1em] font-bold">strength</span>
-        <span class="block mb-[0.1em] font-bold">vigour</span>
-        <span class="block mb-[0.1em] font-bold">fortitude</span>
-    </span>
-</span> -->
+
 <style scoped>
 .hero {
     /* background-image: url(./../../assets/images/home/hero-bg.png); */
