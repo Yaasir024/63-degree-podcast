@@ -17,18 +17,19 @@
                 </div>
 
                 <div
-                    class="mt-[24px] text-base sm:text-[18px] md:text-[24px] leading-[26px] sm:leading-[30px] lg:max-w-[480px] text-[#F2F2F2]">
+                    class="mt-[24px] text-base sm:text-[18px] md:text-[24px] leading-[26px] sm:leading-[32px] lg:max-w-[570px] text-[#F2F2F2]">
+
                     <p class="mb-3">
-                        She is an art director and animator with a decade of experience in editorial, documentary, and
-                        advertising.
+                        We sit down with some of the most influential people in Africa, industry experts and leaders and
+                        embark on a curiosity driven journey to discover truths, lessons and insights that will make our
+                        audiences lives more enjoyable, fulfilled and successful.
                     </p>
                     <p class="mb-3">
-                        She’s worked for big names like The Atlantic, Adobe, Vox, and Netflix.
+                        We dive into captivating conversations uncovering the latest trends, evidence-based strategies, and
+                        personal stories worth studying of the people that have achieved greatness yet walk and live the
+                        fitness, wellness and healthy lifestyle.
                     </p>
-                    <p class="mb-3">
-                        When she’s not making rad creative work, Yvonne loves to speak and educate on animation and motion
-                        design, and has given talks and run student workshops across the U.S. and internationally.
-                    </p>
+
                 </div>
                 <div class="mt-[40px]">
                     <RouterLink to="/contact">
@@ -38,6 +39,5 @@
                     </RouterLink>
                 </div>
             </div>
-        </div>
-    </section>
-</template>
+    </div>
+</section></template>
