@@ -71,8 +71,8 @@ onMounted(() => {
                 </div>
             </a>
             <div class="mt-[16px]">
-                <h1 class="text-[37px] 3xs:text-[42px] sm:text-[64px] leading-[45px] 3xs:leading-[52px] sm:leading-[80px] font-bold max-w-[325px] 3xs:max-w-[480px] sm:max-w-[560px] text-white">
-                    Unlocking secrets to a vibrant life that radiates <span class="font-bold text-[#F8D959]" ref="typing"></span>
+                <h1 class="text-[37px] 2xs:text-[42px] sm:text-[64px] leading-[45px] 3xs:leading-[52px] sm:leading-[80px] font-bold max-w-[325px] 3xs:max-w-[480px] sm:max-w-[560px] text-white">
+                    Unlocking secrets to a vibrant life that radiates <span class="block 2xs:inline-block font-bold text-[#F8D959]" ref="typing"></span>
                     
                 </h1>
                 <p class="text-base xs:text-[18px] sm:text-[24px] leading-[22px] xs:leading-[26px] sm:leading-[30px] text-white mt-[24px] max-w-[540px]">
