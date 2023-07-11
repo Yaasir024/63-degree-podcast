@@ -58,12 +58,9 @@ onMounted(() => {
             <a href="#" class="inline-block">
                 <div class="flex items-center rounded-2xl bg-[#f0f4ed21] p-[4px]">
                     <button
-                        class="border border-white rounded-2xl px-[10px] py-[2px] text-[14px] leading-[20px] font-medium text-white xs:mr-[12px]">Latest
-                        Episode</button>
+                        class="border border-white rounded-2xl px-[10px] py-[2px] text-[14px] leading-[20px] font-medium text-white xs:mr-[12px]">Introducing</button>
                     <div class="flex items-center">
-                        <span class="text-[14px] leading-[20px] font-medium text-white hidden xs:block">EP01 - Intro to
-                            Healthy
-                            Living</span>
+                        <span class="text-[12px] xs:text-[14px] leading-[20px] font-medium text-white hidden xs:block"> 63 Degrees Podcast By Adaeze Okonkwo</span>
                         <svg class="ml-1" width="16" height="16" viewBox="0 0 16 16" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -75,8 +72,8 @@ onMounted(() => {
             </a>
             <div class="mt-[16px]">
                 <h1 class="text-[42px] sm:text-[64px] leading-[52px] sm:leading-[80px] font-bold max-w-[575px] text-white">
-                    Unlocking secrets to a vibrant life that radiates <span class="inline sm:hidden mb-[0.1em] font-bold text-[#F8D959]">vitality</span>
-                    <span class="hidden sm:inline-block overflow-hidden h-[1.08em] leading-[0.9em]">
+                    Unlocking secrets to a vibrant life that radiates <span class="hidden sm:hidden mb-[0.1em] font-bold text-[#F8D959]">vitality</span>
+                    <span class="inline-block sm:inline-block overflow-hidden h-[1.04em] sm:h-[1.08em] leading-[0.9em]">
                         <span class="text-carousel relative block mb-[0.1em] text-[#F8D959]">
                             <span class="block mb-[0.1em] font-bold">vitality</span>
                             <span class="block mb-[0.1em] font-bold">boldness</span>
@@ -101,7 +98,7 @@ onMounted(() => {
                     <span class="ml-2 font-semibold">Listen to 63 Degree Podcast</span>
                 </button>
                 <button
-                    class="btn mt-2 xs:mt-0 bg-[#E48B46] text-white rounded-lg px-[20px] py-[12px] text-[18px] leading-[24px] font-semibold flex items-center">
+                    class="btn mt-4 xs:mt-0 bg-[#E48B46] text-white rounded-lg px-[20px] py-[12px] text-[18px] leading-[24px] font-semibold flex items-center">
                     Apple Podcast
                 </button>
             </div>

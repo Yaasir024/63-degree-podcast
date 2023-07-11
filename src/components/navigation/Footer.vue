@@ -19,9 +19,9 @@
                 </li>
             </ul>
         </div>
-        <div class="pt-[32px] border-t border-gray-600 flex items-center justify-between mt-[64px]">
-            <p class="text-[16px] leading-[24px] text-white">© 2023 630 Podcast. All rights reserved.</p>
-            <div class="flex items-center">
+        <div class="pt-[32px] border-t border-gray-600 flex items-center justify-between flex-col sm:flex-row mt-[64px]">
+            <p class="text-[16px] leading-[24px] text-white">© 2023 63° Podcast. All rights reserved.</p>
+            <div class="flex items-center mt-4 sm:mt-0">
                 <a href="#" target="_blank" class="mr-[32px]">
                     <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
