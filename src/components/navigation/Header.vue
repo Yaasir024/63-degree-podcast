@@ -22,18 +22,18 @@ useClickOutside(mobileNav, () => {
                 <nav class="ml-[40px] hidden md:block">
                     <ul class="flex items-center text-white">
                         <li class=" text-[16px] leading-[24px] mr-[32px]">
-                            <RouterLink to="/" class="font-medium">Home</RouterLink>
+                            <RouterLink to="/" class="link font-medium">Home</RouterLink>
                         </li>
                         <li class=" text-[16px] leading-[24px] mr-[32px]">
-                            <RouterLink to="/episodes" class="font-medium">
+                            <RouterLink to="/episodes" class="link font-medium">
                                 Episodes
                             </RouterLink>
                         </li>
                         <li class=" text-[16px] leading-[24px] mr-[32px]">
-                            <RouterLink to="/" class="font-medium">Blog</RouterLink>
+                            <RouterLink to="/" class="link font-medium">Blog</RouterLink>
                         </li>
                         <li class=" text-[16px] leading-[24px]">
-                            <RouterLink to="/contact" class="font-medium">Contact</RouterLink>
+                            <RouterLink to="/contact" class="link font-medium">Contact</RouterLink>
                         </li>
                     </ul>
                 </nav>
@@ -60,7 +60,8 @@ useClickOutside(mobileNav, () => {
                 </div>
             </div>
         </div>
-        <div class="overlay h-screen fixed top-0 left-0 bottom-0 right-0 bg-black/40 z-[80]" v-if="showMobileNav">
+        <div class="block md:hidden overlay h-screen fixed top-0 left-0 bottom-0 right-0 bg-black/40 z-[80]"
+            v-if="showMobileNav">
         </div>
     </header>
 </template>
@@ -88,4 +89,5 @@ useClickOutside(mobileNav, () => {
 .menu-enter-from,
 .menu-leave-to {
     transform: scale(0);
-}</style>
+}
+</style>

@@ -19,18 +19,18 @@ const closeOnRoute = () => {
         </div>
         <ul class="flex flex-col text-white">
             <li class=" text-[20px] leading-[24px] pl-8 py-4">
-                <RouterLink to="/" class="font-medium" @click="closeOnRoute">Home</RouterLink>
+                <RouterLink to="/" class="link font-medium" @click="closeOnRoute">Home</RouterLink>
             </li>
             <li class=" text-[20px] leading-[24px] pl-8 py-4">
-                <RouterLink to="/episodes" class="font-medium" @click="closeOnRoute">
+                <RouterLink to="/episodes" class="link font-medium" @click="closeOnRoute">
                     Episodes
                 </RouterLink>
             </li>
             <li class=" text-[20px] leading-[24px] pl-8 py-4">
-                <RouterLink to="/" class="font-medium" @click="closeOnRoute">Blog</RouterLink>
+                <RouterLink to="/" class="link font-medium" @click="closeOnRoute">Blog</RouterLink>
             </li>
             <li class=" text-[20px] leading-[24px] pl-8 py-4">
-                <RouterLink to="/contact" class="font-medium" @click="closeOnRoute">Contact</RouterLink>
+                <RouterLink to="/contact" class="link font-medium" @click="closeOnRoute">Contact</RouterLink>
             </li>
     </ul>
 </div></template>

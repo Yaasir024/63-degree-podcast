@@ -9,13 +9,13 @@
             </p>
             <ul class="flex items-center text-white mt-[32px]">
                 <li class=" text-[16px] leading-[24px] mr-[32px]">
-                    <RouterLink to="/episodes" class="font-medium">Episodes</RouterLink>
+                    <RouterLink to="/episodes" class="link font-medium">Episodes</RouterLink>
                 </li>
                 <li class=" text-[16px] leading-[24px] mr-[32px]">
-                    <RouterLink to="/" class="font-medium">Blog</RouterLink>
+                    <RouterLink to="/" class="link font-medium">Blog</RouterLink>
                 </li>
                 <li class=" text-[16px] leading-[24px]">
-                    <RouterLink to="/contact" class="font-medium">Contact</RouterLink>
+                    <RouterLink to="/contact" class="link font-medium">Contact</RouterLink>
                 </li>
             </ul>
         </div>

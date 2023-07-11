@@ -1,2 +1,9 @@
 @import './base.css';
 
+.link {
+    transition: all .3s ease-in-out;
+}
+
+.link:hover {
+    color: #6AE6D4;
+}
