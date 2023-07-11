@@ -74,17 +74,17 @@ onMounted(() => {
                 </div>
             </a>
             <div class="mt-[16px]">
-                <h1 class="text-[42px] sm:text-[64px] leading-[52px] sm:leading-[80px] font-bold max-w-[560px] text-white">
-                    Unlocking secrets to a vibrant life that radiates <span class="font-bold" ref="typing"></span> 
-                    <!-- <span class="inline-block overflow-hidden h-[1em]">
-                        <span class="text-carousel block mb-[0.1em]">
-                            <span class="block mb-[0.1em] text-[1em] leading-[.9em] font-bold">vitality</span>
-                            <span class="block mb-[0.1em] text-[1em] leading-[.9em] font-bold">boldness</span>
-                            <span class="block mb-[0.1em] text-[1em] leading-[.9em] font-bold">strength</span>
-                            <span class="block mb-[0.1em] text-[1em] leading-[.9em] font-bold">vigour</span>
-                            <span class="block mb-[0.1em] text-[1em] leading-[.9em] font-bold">fortitude</span>
+                <h1 class="text-[42px] sm:text-[64px] leading-[52px] sm:leading-[80px] font-bold max-w-[575px] text-white">
+                    Unlocking secrets to a vibrant life that radiates <span class="block sm:hidden mb-[0.1em] font-bold text-[#F8D959]">vitality</span>
+                    <span class="hidden sm:inline-block overflow-hidden h-[1.08em] leading-[0.9em]">
+                        <span class="text-carousel relative block mb-[0.1em] text-[#F8D959]">
+                            <span class="block mb-[0.1em] font-bold">vitality</span>
+                            <span class="block mb-[0.1em] font-bold">boldness</span>
+                            <span class="block mb-[0.1em] font-bold">strength</span>
+                            <span class="block mb-[0.1em] font-bold">vigour</span>
+                            <span class="block mb-[0.1em] font-bold">fortitude</span>
                         </span>
-                    </span> -->
+                    </span>
                 </h1>
                 <p class="text-[18px] sm:text-[24px] leading-[26px] sm:leading-[30px] text-white mt-[24px] max-w-[540px]">
                     An unfiltered journey into the exciting world of fitness, wellness, and healthy living
@@ -182,7 +182,7 @@ onMounted(() => {
 
 .text-carousel {
     position: relative;
-    animation: moveUpAndDown 20s infinite;
+    animation: moveUpAndDown 8s ease-in-out;
 }
 
 @keyframes moveUpAndDown {
@@ -190,32 +190,32 @@ onMounted(() => {
         transform: translateY(0);
     }
 
-    5%,
-    10% {
+    10%,
+    20% {
         transform: translateY(-1em);
     }
 
-    15%,
-    20% {
+    30%,
+    40% {
         transform: translateY(-2em);
     }
 
-    25%,
-    30% {
+    50%,
+    60% {
         transform: translateY(-3em);
     }
 
-    35%,
-    40% {
+    70%,
+    80% {
         transform: translateY(-4em);
     }
 
-    45%,
-    50% {
-        transform: translateY(-5em);
+    90%,
+    100% {
+        transform: translateY(0);
     }
 
-    55%,
+    /* 55%,
     60% {
         transform: translateY(-4em);
     }
@@ -238,7 +238,7 @@ onMounted(() => {
     95%,
     100% {
         transform: translateY(0);
-    }
+    } */
 
     /* 0%,
     20%,
