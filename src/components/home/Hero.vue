@@ -53,7 +53,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <section class="hero min-h-screen px-[24px] xs:px-[42px] md:px-[64px] xl:px-[96px] pt-[72px] flex">
+    <section class="hero min-h-screen px-[24px] 3xs:px-[42px] md:px-[64px] xl:px-[96px] pt-[72px] flex">
         <div class="xl:shrink-0">
             <a href="#" class="inline-block">
                 <div class="flex items-center rounded-2xl bg-[#f0f4ed21] p-[4px]">
@@ -71,7 +71,7 @@ onMounted(() => {
                 </div>
             </a>
             <div class="mt-[16px]">
-                <h1 class="text-[37px] xs:text-[42px] sm:text-[64px] leading-[45px] xs:leading-[52px] sm:leading-[80px] font-bold max-w-[575px] text-white">
+                <h1 class="text-[37px] 3xs:text-[42px] sm:text-[64px] leading-[45px] 3xs:leading-[52px] sm:leading-[80px] font-bold max-w-[575px] text-white">
                     Unlocking secrets to a vibrant life that radiates <span class="hidden sm:hidden mb-[0.1em] font-bold text-[#F8D959]">vitality</span>
                     <span class="inline-block sm:inline-block overflow-hidden h-[1.04em] sm:h-[1.08em] leading-[0.9em]">
                         <span class="text-carousel relative block mb-[0.1em] text-[#F8D959]">
