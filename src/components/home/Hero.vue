@@ -73,7 +73,7 @@ onMounted(() => {
             </a>
             <div class="mt-[16px]">
                 <h1
-                    class="text-[37px] 3xs:text-[42px] sm:text-[64px] leading-[45px] 3xs:leading-[52px] sm:leading-[80px] font-bold max-w-[575px] text-white">
+                    class="text-[40px] 3xs:text-[42px] sm:text-[64px] leading-[45px] 3xs:leading-[52px] sm:leading-[80px] font-bold max-w-[270px] 3xs:max-w-[575px] text-white">
                     Unlocking secrets to a vibrant life that radiates <span
                         class="hidden sm:hidden mb-[0.1em] font-bold text-[#F8D959]">vitality</span>
                     <span class="inline-block sm:inline-block overflow-hidden h-[1.04em] sm:h-[1.08em] leading-[0.9em]">
