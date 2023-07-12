@@ -11,7 +11,7 @@ onMounted(() => {
     let tl = gsap.timeline({
         repeat: -1,
         defaults: { ease: "back" },
-        
+
     });
     tl.to(typing.value, {
         text: "vitality",
@@ -60,7 +60,8 @@ onMounted(() => {
                     <button
                         class="border border-white rounded-2xl px-[10px] py-[2px] text-[14px] leading-[20px] font-medium text-white xs:mr-[12px]">Introducing</button>
                     <div class="flex items-center">
-                        <span class="text-[12px] xs:text-[14px] leading-[20px] font-medium text-white hidden xs:block"> 63 Degrees Podcast By Adaeze Okonkwo</span>
+                        <span class="text-[12px] xs:text-[14px] leading-[20px] font-medium text-white hidden xs:block"> 63
+                            Degrees Podcast By Adaeze Okonkwo</span>
                         <svg class="ml-1" width="16" height="16" viewBox="0 0 16 16" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -71,8 +72,10 @@ onMounted(() => {
                 </div>
             </a>
             <div class="mt-[16px]">
-                <h1 class="text-[37px] 3xs:text-[42px] sm:text-[64px] leading-[45px] 3xs:leading-[52px] sm:leading-[80px] font-bold max-w-[575px] text-white">
-                    Unlocking secrets to a vibrant life that radiates <span class="hidden sm:hidden mb-[0.1em] font-bold text-[#F8D959]">vitality</span>
+                <h1
+                    class="text-[37px] 3xs:text-[42px] sm:text-[64px] leading-[45px] 3xs:leading-[52px] sm:leading-[80px] font-bold max-w-[575px] text-white">
+                    Unlocking secrets to a vibrant life that radiates <span
+                        class="hidden sm:hidden mb-[0.1em] font-bold text-[#F8D959]">vitality</span>
                     <span class="inline-block sm:inline-block overflow-hidden h-[1.04em] sm:h-[1.08em] leading-[0.9em]">
                         <span class="text-carousel relative block mb-[0.1em] text-[#F8D959]">
                             <span class="block mb-[0.1em] font-bold">vitality</span>
@@ -83,7 +86,8 @@ onMounted(() => {
                         </span>
                     </span>
                 </h1>
-                <p class="text-base xs:text-[18px] sm:text-[24px] leading-[22px] xs:leading-[26px] sm:leading-[30px] text-white mt-[24px] max-w-[540px]">
+                <p
+                    class="text-base xs:text-[18px] sm:text-[24px] leading-[22px] xs:leading-[26px] sm:leading-[30px] text-white mt-[24px] max-w-[540px]">
                     An unfiltered journey into the exciting world of fitness, wellness, and healthy living
                 </p>
             </div>
@@ -179,7 +183,7 @@ onMounted(() => {
 
 .text-carousel {
     position: relative;
-    animation: moveUpAndDown 8s ease-in-out;
+    animation: moveUpAndDown 12s infinite;
 }
 
 @keyframes moveUpAndDown {
@@ -188,23 +192,38 @@ onMounted(() => {
     }
 
     10%,
-    20% {
+    15% {
         transform: translateY(-1em);
     }
 
-    30%,
-    40% {
+    20%,
+    25% {
         transform: translateY(-2em);
     }
 
-    50%,
-    60% {
+    30%,
+    35% {
+        transform: translateY(-3em);
+    }
+
+    40%,
+    50% {
+        transform: translateY(-4em);
+    }
+
+    60%,
+    65% {
         transform: translateY(-3em);
     }
 
     70%,
-    80% {
-        transform: translateY(-4em);
+    75% {
+        transform: translateY(-2em);
+    }
+
+    80%,
+    85% {
+        transform: translateY(-1em);
     }
 
     90%,
@@ -212,44 +231,5 @@ onMounted(() => {
         transform: translateY(0);
     }
 
-    /* 55%,
-    60% {
-        transform: translateY(-4em);
-    }
 
-    65%,
-    70% {
-        transform: translateY(-3em);
-    }
-
-    75%,
-    80% {
-        transform: translateY(-2em);
-    }
-
-    85%,
-    90% {
-        transform: translateY(-1em);
-    }
-
-    95%,
-    100% {
-        transform: translateY(0);
-    } */
-
-    /* 0%,
-    20%,
-    80%,
-    100% {
-        transform: translateY(0);
-    }
-
-    40%,
-    60% {
-        transform: translateY(-1em);
-    }
-
-    50% {
-        transform: translateY(0);
-    } */
 }</style>
