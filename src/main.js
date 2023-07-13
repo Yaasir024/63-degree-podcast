@@ -6,10 +6,12 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
+import prismic from "./services/prismic";
 
 const app = createApp(App)
 
 app.use(createPinia())
+app.use(prismic)
 app.use(router)
 
 app.mount('#app')
