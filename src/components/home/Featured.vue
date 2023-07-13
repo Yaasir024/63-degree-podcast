@@ -40,7 +40,7 @@ const { data: featured } = useAllPrismicDocumentsByTag("featured");
         </div>
         <div class="mt-[50px] flex flex-wrap  justify-center md:justify-start">
             <div class="card flex-full md:flex-[50%] lg:flex-33.33%" v-for="podcast in featured" :key="podcast.id">
-                <RouterLink to="/episode">
+                <RouterLink :to="`/episode/${podcast.uid}`">
                     <div class=" px-[14px] mb-8 lg:mb-0">
                         <div class="relative overflow-hidden rounded-[7px]">
                             <img :src="podcast.data.placeholder_image.url" alt="" class="img">
