@@ -218,7 +218,7 @@ watch(article, (newValue, oldValue) => {
                         </div>
                     </section>
                     <div class="mt-[100px] border-t-2 border-black/5 pt-[35px] flex items-center" v-if="previousBlogDetail.loaded && nextBlogDetail.loaded">
-                        <div class="flex-50% flex items-center border-r border-black/5 pr-5">
+                        <div class="flex-50% flex items-center border-r border-black/5 pr-2 xs:pr-5">
                             <a :href="previousBlogDetail.data.uid" class="flex items-center" v-if="previousBlogDetail.data">
                                 <svg class="hidden md:block mr-[12px] 2xl:mr-[30px]" width="80" height="80"
                                     viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -248,14 +248,14 @@ watch(article, (newValue, oldValue) => {
                                         </clipPath>
                                     </defs>
                                 </svg>
-                                <h3 class="text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">
+                                <h3 class="text-[12px] 3xs:text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">
                                     {{ $prismic.asText(previousBlogDetail.data.podcast_name) }}</h3>
                             </a>
                         </div>
-                        <div class="flex-50% flex items-center justify-end border-l border-black/5 pl-5">
+                        <div class="flex-50% flex items-center justify-end border-l border-black/5 pl-2 xs:pl-5">
                             <a :href="nextBlogDetail.data.uid" class="flex items-center" v-if="nextBlogDetail.data">
 
-                                <h3 class="text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">
+                                <h3 class="text-[12px] 3xs:text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">
                                     {{ $prismic.asText(nextBlogDetail.data.podcast_name) }}</h3>
                                 <svg class="hidden md:block ml-[12px] 2xl:ml-[30px]" width="80" height="80"
                                     viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
