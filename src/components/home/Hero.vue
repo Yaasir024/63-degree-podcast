@@ -1,55 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import { gsap } from "gsap";
-import { TextPlugin } from "gsap/TextPlugin";
 
-const typing = ref(null);
 
-// TGSAP ANIMATION
-onMounted(() => {
-    gsap.registerPlugin(TextPlugin);
-    let tl = gsap.timeline({
-        repeat: -1,
-        defaults: { ease: "back" },
-
-    });
-    tl.to(typing.value, {
-        text: "vitality",
-        duration: 3,
-        ease: "power1.in",
-        repeat: 1,
-        delay: 1,
-        yoyo: true,
-    })
-        .to(typing.value, {
-            text: "boldness",
-            duration: 3,
-            ease: "power1.in",
-            repeat: 1,
-            yoyo: true,
-        })
-        .to(typing.value, {
-            text: "strength",
-            duration: 3,
-            ease: "power1.in",
-            repeat: 1,
-            yoyo: true,
-        })
-        .to(typing.value, {
-            text: "vigour",
-            duration: 3,
-            ease: "power1.in",
-            repeat: 1,
-            yoyo: true,
-        })
-        .to(typing.value, {
-            text: "fortitude",
-            duration: 3,
-            ease: "power1.in",
-            repeat: 1,
-            yoyo: true,
-        });
-});
 </script>
 
 <template>
