@@ -2,6 +2,8 @@
 import { ref, watch } from 'vue';
 import { useRoute } from "vue-router";
 
+import axios from 'axios';
+
 import {
     usePrismicDocumentByUID,
     PrismicText,
@@ -29,26 +31,32 @@ const components = defineSliceZoneComponents({
     description: Text,
 });
 
-const getPrevNext = async (id) => {
-    console.log(id)
-    // const prevpost = (await $prismic.api.query($prismic.predicates.at('document.type', 'podcasts'), { pageSize: 1, after: `${id}`, orderings: '[my.post.date desc]' })).results[0]
+// const getPrevNext = async (id) => {
+//     console.log(id)
+//     // const prevpost = ($prismic.api.query($prismic.predicates.at('document.type', 'podcasts'), { pageSize: 1, after: `${id}`, orderings: '[my.post.date desc]' })).results[0]
+//     // const pre = $prismic.api.query($prismic.predicates.at('document.type', 'podcasts'), { pageSize: 1, after: `${id}`, orderings: '[my.post.date desc]' })
 
-    // const nextpost = (await $prismic.api.query($prismic.predicates.at('document.type', 'podcasts'), { pageSize: 1, after: `${id}`, orderings: '[my.post.date]' })).results[0]
+//     // const nextpost = (await $prismic.api.query($prismic.predicates.at('document.type', 'podcasts'), { pageSize: 1, after: `${id}`, orderings: '[my.post.date]' })).results[0]
+//     // Fetch the previous document details
+//     // const previousDocumentResponse = await axios.get(`https://63-degree-podcast.cdn.prismic.io/api/v2/documents/search?ref=ZLEqCxIAACMAb0Lk&q=[[my.podcasts,<,"${id}"]]&orderings=[my.podcasts desc]&pageSize=1`);
+//     const previousDocumentResponse = await axios.get(`https://63-degree-podcast.cdn.prismic.io/api/v2/documents/search?ref=ZLEqCxIAACMAb0Lk&q`);
+//     // previousDocument.value = previousDocumentResponse.data.results[0];
 
-    // console.log(prevpost)
-}
-watch(article, (newValue, oldValue) => {
-    if (newValue && newValue !== oldValue) {
-        // Call your API here
-        getPrevNext(article.value.id);
-    }
-});
+//     console.log(previousDocumentResponse)
+// }
+// watch(article, (newValue, oldValue) => {
+//     if (newValue && newValue !== oldValue) {
+//         // Call your API here
+//         getPrevNext(article.value.id);
+//     }
+// });
 </script>
 
 <template>
     <div class="">
         <Header />
         <section class="">
+            <!-- {{ article }} -->
             <main class="" v-if="article">
                 <section class="hero px-[28px] xs:px-[42px] md:px-[64px] xl:px-[94px] pt-[72px] ">
                     <div class="flex justify-between">
@@ -88,14 +96,16 @@ watch(article, (newValue, oldValue) => {
 
                         </div>
                         <div class="max-w-[500px] hidden lg:block">
-                            <img :src="article.data.placeholder_image.url" :alt="$prismic.asText(article.data.podcast_name)" class="podcast-image max-h-[350px] w-[500px]">
+                            <img :src="article.data.placeholder_image.url" :alt="$prismic.asText(article.data.podcast_name)"
+                                class="podcast-image max-h-[350px] w-[500px]">
                         </div>
 
                     </div>
                 </section>
                 <div class="px-[28px] xs:px-[42px] md:px-[64px] xl:px-[95px] pt-[38px] pb-[180px]">
                     <div class="mb-12 block lg:hidden">
-                        <img :src="article.data.placeholder_image.url" :alt="$prismic.asText(article.data.podcast_name)" class="podcast-image max-h-[350px] w-[500px]">
+                        <img :src="article.data.placeholder_image.url" :alt="$prismic.asText(article.data.podcast_name)"
+                            class="podcast-image max-h-[350px] w-[500px]">
 
                     </div>
                     <section class="">
@@ -210,7 +220,7 @@ watch(article, (newValue, oldValue) => {
                             </div>
                         </div>
                     </section>
-                    <div class="mt-[100px] border-t-2 border-black/5 pt-[35px] flex items-center">
+                    <div class="mt-[100px] border-t-2 border-black/5 pt-[35px] flex items-center" v-if="false">
                         <div class="flex-50% flex items-center border-r border-black/5 pr-5">
                             <svg class="hidden md:block mr-[12px] 2xl:mr-[30px]" width="80" height="80" viewBox="0 0 80 80"
                                 fill="none" xmlns="http://www.w3.org/2000/svg">
