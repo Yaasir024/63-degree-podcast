@@ -13,6 +13,10 @@ import { usePodcastStore } from '@/stores/podcast.js'
 const usePodcast = usePodcastStore()
 
 const { data: featured } = useAllPrismicDocumentsByTag("featured");
+
+const filteredPodcasts = computed(() => {
+    return featured.value.slice(0, 3);
+})
 </script>
 
 <template>
@@ -39,7 +43,7 @@ const { data: featured } = useAllPrismicDocumentsByTag("featured");
             </button>
         </div>
         <div class="mt-[50px] flex flex-wrap  justify-center md:justify-start">
-            <div class="card flex-full md:flex-[50%] lg:flex-33.33%" v-for="podcast in featured" :key="podcast.id">
+            <div class="card flex-full md:flex-[50%] lg:flex-33.33%" v-for="podcast in filteredPodcasts" :key="podcast.id">
                 <RouterLink :to="`/episode/${podcast.uid}`">
                     <div class=" px-[14px] mb-8 lg:mb-0">
                         <div class="relative overflow-hidden rounded-[7px]">

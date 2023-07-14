@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import Header from '@/components/navigation/Header.vue';
 import Footer from '@/components/navigation/Footer.vue';
 
@@ -13,6 +13,9 @@ import {
 
 import { usePodcastStore } from '@/stores/podcast.js'
 
+import { ElSkeleton, ElSkeletonItem } from 'element-plus'
+import 'element-plus/dist/index.css'
+
 const usePodcast = usePodcastStore()
 
 const selectedMenu = ref("all episodes")
@@ -25,7 +28,21 @@ const menuOption = [
 
 const { data: allPodcasts } = useAllPrismicDocumentsByType("podcasts");
 
-
+const filteredPodcasts = computed(() => {
+    // return allPodcasts.value.filter((item) => item.data.category === 'fitness')
+    if (selectedMenu.value == 'wellness') {
+        return allPodcasts.value.filter((item) => item.data.category === 'wellness')
+    } else if (selectedMenu.value == 'fitness') {
+        return allPodcasts.value.filter((item) => item.data.category === 'fitness')
+    } else if (selectedMenu.value == 'healthy living') {
+        return allPodcasts.value.filter((item) => item.data.category === 'healthy living')
+    } else {
+        return allPodcasts.value
+    }
+})
+const podcastLength = computed(() => {
+    return allPodcasts.value.length
+})
 </script>
 
 
@@ -66,94 +83,107 @@ const { data: allPodcasts } = useAllPrismicDocumentsByType("podcasts");
         </div>
         <div class="flex mt-[78px] flex-col 2xl:flex-row">
             <div class="w-full">
-                <div class="" v-for="podcast in allPodcasts" :key="podcast.id">
-                    <RouterLink :to="`/episode/${podcast.uid}`">
-                        <div class="card flex flex-col sm:flex-row mb-[48px]">
-                            <div class="relative sm:max-w-[300px] sm:mr-[40px] overflow-hidden rounded-[7px]">
-                                <img :src="podcast.data.placeholder_image.url" alt="" class="w-full img">
-
-                            </div>
-                            <div class="">
-                                <div class="flex items-center mt-[19px]">
-                                    <button
-                                        class="flex items-center mr-[16px] rounded-lg border border-[#0000000D]/5 p-[3px]">
-                                        <svg width="13" height="14" viewBox="0 0 13 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M8.8767 0.864014C9.22842 0.864014 9.51355 1.14914 9.51355 1.50087V2.13771H10.1504C11.2056 2.13771 12.061 2.9931 12.061 4.04827V6.59568V11.6905C12.061 12.7457 11.2056 13.601 10.1504 13.601H2.50821C1.45304 13.601 0.597656 12.7457 0.597656 11.6905V6.59568V4.04827C0.597656 2.9931 1.45304 2.13771 2.50821 2.13771H3.14505V1.50087C3.14505 1.14914 3.43018 0.864014 3.7819 0.864014C4.13363 0.864014 4.41876 1.14914 4.41876 1.50087V2.13771H8.23984V1.50087C8.23984 1.14914 8.52497 0.864014 8.8767 0.864014ZM10.7873 4.04827V5.95883H1.87136V4.04827C1.87136 3.69654 2.15649 3.41141 2.50821 3.41141H3.14505V4.04827C3.14505 4.39999 3.43018 4.68512 3.7819 4.68512C4.13363 4.68512 4.41876 4.39999 4.41876 4.04827V3.41141H8.23984V4.04827C8.23984 4.39999 8.52497 4.68512 8.8767 4.68512C9.22842 4.68512 9.51355 4.39999 9.51355 4.04827V3.41141H10.1504C10.5022 3.41141 10.7873 3.69654 10.7873 4.04827ZM10.7873 7.23253H1.87136V11.6905C1.87136 12.0422 2.15649 12.3273 2.50821 12.3273H10.1504C10.5022 12.3273 10.7873 12.0422 10.7873 11.6905V7.23253ZM3.7819 8.50625C3.43018 8.50625 3.14505 8.79137 3.14505 9.1431V10.4168C3.14505 10.7685 3.43018 11.0537 3.7819 11.0537H5.05561C5.40733 11.0537 5.69246 10.7685 5.69246 10.4168V9.1431C5.69246 8.79137 5.40733 8.50625 5.05561 8.50625H3.7819Z"
-                                                fill="black" fill-opacity="0.5" />
-                                        </svg>
-
-                                        <span
-                                            class="ml-[3px] text-[12px] leading-[14px] font-medium text-black/50 capitalize">
-                                            {{ usePodcast.formatDate(podcast.data.release_date) }}
-                                        </span>
-                                    </button>
-                                    <button
-                                        class="flex items-center mr-[16px] rounded-lg border border-[#0000000D]/5 p-[3px]">
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M5.11994 5.08026C5.95597 4.24423 7.08987 3.77456 8.27219 3.77456C9.45452 3.77456 10.5884 4.24423 11.4244 5.08026C12.2605 5.91629 12.7302 7.05019 12.7302 8.23252V8.34123C12.531 8.27083 12.3166 8.23252 12.0933 8.23252H11.4564C10.4013 8.23252 9.54589 9.0879 9.54589 10.1431V12.0536C9.54589 13.1088 10.4013 13.9642 11.4564 13.9642H12.0933C13.1485 13.9642 14.0038 13.1088 14.0038 12.0536V10.1458C14.0039 10.1449 14.0039 10.144 14.0039 10.1431V8.23252C14.0039 6.71239 13.4 5.25452 12.3251 4.17962C11.2502 3.10472 9.79232 2.50085 8.27219 2.50085C6.75206 2.50085 5.29419 3.10472 4.21929 4.17962C3.1444 5.25452 2.54053 6.71239 2.54053 8.23252V10.1431V12.0536C2.54053 13.1088 3.39591 13.9642 4.45108 13.9642H5.08793C6.1431 13.9642 6.99849 13.1088 6.99849 12.0536V10.1431C6.99849 9.0879 6.1431 8.23252 5.08793 8.23252H4.45108C4.22778 8.23252 4.01342 8.27083 3.81423 8.34123V8.23252C3.81423 7.05019 4.28391 5.91629 5.11994 5.08026ZM4.45108 9.50622C4.09936 9.50622 3.81423 9.79135 3.81423 10.1431V12.0536C3.81423 12.4053 4.09936 12.6905 4.45108 12.6905H5.08793C5.43966 12.6905 5.72479 12.4053 5.72479 12.0536V10.1431C5.72479 9.79135 5.43966 9.50622 5.08793 9.50622H4.45108ZM11.4564 9.50622C11.1047 9.50622 10.8196 9.79135 10.8196 10.1431V12.0536C10.8196 12.4053 11.1047 12.6905 11.4564 12.6905H12.0933C12.445 12.6905 12.7301 12.4053 12.7301 12.0536V10.1431C12.7301 9.79135 12.445 9.50622 12.0933 9.50622H11.4564Z"
-                                                fill="black" fill-opacity="0.5" />
-                                        </svg>
-                                        <span
-                                            class="ml-[3px] text-[12px] leading-[14px] font-medium text-black/50 capitalize">
-                                            {{ $prismic.asText(podcast.data.listens) }}
-                                        </span>
-                                    </button>
-                                    <button class="flex items-center rounded-lg border border-[#0000000D]/5 p-[3px]">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M7.21471 2.13775C4.40092 2.13775 2.11989 4.41877 2.11989 7.23256C2.11989 10.0463 4.40092 12.3274 7.21471 12.3274C10.0285 12.3274 12.3095 10.0463 12.3095 7.23256C12.3095 4.41877 10.0285 2.13775 7.21471 2.13775ZM0.846191 7.23256C0.846191 3.71533 3.69747 0.864044 7.21471 0.864044C10.7319 0.864044 13.5832 3.71533 13.5832 7.23256C13.5832 10.7498 10.7319 13.6011 7.21471 13.6011C3.69747 13.6011 0.846191 10.7498 0.846191 7.23256Z"
-                                                fill="black" fill-opacity="0.5" />
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M7.21473 3.41144C7.56646 3.41144 7.85158 3.69657 7.85158 4.04829V6.96876L9.57561 8.69278C9.82432 8.94149 9.82432 9.34472 9.57561 9.59342C9.3269 9.84213 8.92367 9.84213 8.67497 9.59342L6.76441 7.68287C6.64498 7.56344 6.57788 7.40145 6.57788 7.23255V4.04829C6.57788 3.69657 6.86301 3.41144 7.21473 3.41144Z"
-                                                fill="black" fill-opacity="0.5" />
-                                        </svg>
-                                        <span
-                                            class="ml-[3px] text-[12px] leading-[14px] font-medium text-black/50 capitalize">
-                                            {{ $prismic.asText(podcast.data.duration) }}
-                                        </span>
-                                    </button>
-                                </div>
-                                <h3
-                                    class="mt-[15px] text-black text-[20px] lg:text-[30px] leading-[28px] lg:leading-[38px] font-semibold max-w-[490px]">
-                                    {{ $prismic.asText(podcast.data.podcast_name) }}
-                                </h3>
-                                <h3 class="mt-[15px] text-black/50 text-[20px] leading-[30px] max-w-[470px]">
-                                    {{ $prismic.asText(podcast.data.excerpt) }}
-                                </h3>
-
-                                <div class="flex items-center mt-[40px] pb-[10px] border-b border-black/5">
-                                    <a :href="podcast.data.episode_link.url" class="mr-[10px]">
-                                        <button
-                                            class="bg-63-light-green text-63-dark-green rounded-lg px-[20px] py-[12px] text-[18px] leading-[28px] font-semibold flex items-center">
-                                            <svg width="14" height="16" viewBox="0 0 14 16" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M0.166504 2.16666V13.8333C0.168411 14.1053 0.236825 14.3726 0.365776 14.612C0.494728 14.8514 0.6803 15.0556 0.906306 15.2068C1.13231 15.3581 1.39188 15.4517 1.66238 15.4795C1.93288 15.5074 2.20609 15.4686 2.45817 15.3667L12.6665 9.45C12.927 9.30586 13.1441 9.09458 13.2953 8.83812C13.4466 8.58166 13.5263 8.28938 13.5263 7.99166C13.5263 7.69394 13.4466 7.40166 13.2953 7.1452C13.1441 6.88874 12.927 6.67746 12.6665 6.53333L2.45817 0.616662C2.21186 0.516613 1.94518 0.47694 1.68041 0.500954C1.41564 0.524968 1.16046 0.611973 0.936168 0.754705C0.711874 0.897437 0.52498 1.09175 0.391088 1.32143C0.257196 1.55111 0.180192 1.80949 0.166504 2.075"
-                                                    fill="#16363F" />
-                                            </svg>
-                                            <span class="ml-2 font-semibold">Listen</span>
-                                        </button>
-                                    </a>
-                                    <button class="bg-black/5 rounded-lg px-[21px] py-[17px]">
-                                        <svg width="10" height="16" viewBox="0 0 10 16" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M2.5 2.16667C2.27899 2.16667 2.06702 2.25446 1.91074 2.41074C1.75446 2.56702 1.66667 2.77899 1.66667 3V13.1948L4.57125 11.4521C4.83516 11.2937 5.16484 11.2937 5.42875 11.4521L8.33333 13.1948V3C8.33333 2.77899 8.24554 2.56702 8.08926 2.41074C7.93298 2.25446 7.72101 2.16667 7.5 2.16667H2.5ZM0.732233 1.23223C1.20107 0.763392 1.83696 0.5 2.5 0.5H7.5C8.16304 0.5 8.79893 0.763392 9.26777 1.23223C9.73661 1.70107 10 2.33696 10 3V14.6667C10 14.9669 9.83851 15.2439 9.57725 15.3918C9.31599 15.5398 8.99536 15.5357 8.73792 15.3812L5 13.1385L1.26208 15.3812C1.00464 15.5357 0.684008 15.5398 0.422751 15.3918C0.161494 15.2439 0 14.9669 0 14.6667V3C0 2.33696 0.263392 1.70107 0.732233 1.23223Z"
-                                                fill="black" />
-                                        </svg>
-                                    </button>
-                                </div>
-
+                <div class="" v-if="allPodcasts">
+                    <div class="w-full" v-if="podcastLength != 0">
+                        <div class="" v-if="podcastLength != 0 && filteredPodcasts.length != 0">
+                            <div class="" v-for="podcast in filteredPodcasts" :key="podcast.id">
+                                <!-- {{ podcast.data.category }} -->
+                                <RouterLink :to="`/episode/${podcast.uid}`">
+                                    <div class="card flex flex-col sm:flex-row mb-[48px]">
+                                        <div class="relative sm:max-w-[300px] sm:mr-[40px] overflow-hidden rounded-[7px]">
+                                            <img :src="podcast.data.placeholder_image.url" alt="" class="w-full img">
+    
+                                        </div>
+                                        <div class="">
+                                            <div class="flex items-center mt-[19px]">
+                                                <button
+                                                    class="flex items-center mr-[16px] rounded-lg border border-[#0000000D]/5 p-[3px]">
+                                                    <svg width="13" height="14" viewBox="0 0 13 14" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M8.8767 0.864014C9.22842 0.864014 9.51355 1.14914 9.51355 1.50087V2.13771H10.1504C11.2056 2.13771 12.061 2.9931 12.061 4.04827V6.59568V11.6905C12.061 12.7457 11.2056 13.601 10.1504 13.601H2.50821C1.45304 13.601 0.597656 12.7457 0.597656 11.6905V6.59568V4.04827C0.597656 2.9931 1.45304 2.13771 2.50821 2.13771H3.14505V1.50087C3.14505 1.14914 3.43018 0.864014 3.7819 0.864014C4.13363 0.864014 4.41876 1.14914 4.41876 1.50087V2.13771H8.23984V1.50087C8.23984 1.14914 8.52497 0.864014 8.8767 0.864014ZM10.7873 4.04827V5.95883H1.87136V4.04827C1.87136 3.69654 2.15649 3.41141 2.50821 3.41141H3.14505V4.04827C3.14505 4.39999 3.43018 4.68512 3.7819 4.68512C4.13363 4.68512 4.41876 4.39999 4.41876 4.04827V3.41141H8.23984V4.04827C8.23984 4.39999 8.52497 4.68512 8.8767 4.68512C9.22842 4.68512 9.51355 4.39999 9.51355 4.04827V3.41141H10.1504C10.5022 3.41141 10.7873 3.69654 10.7873 4.04827ZM10.7873 7.23253H1.87136V11.6905C1.87136 12.0422 2.15649 12.3273 2.50821 12.3273H10.1504C10.5022 12.3273 10.7873 12.0422 10.7873 11.6905V7.23253ZM3.7819 8.50625C3.43018 8.50625 3.14505 8.79137 3.14505 9.1431V10.4168C3.14505 10.7685 3.43018 11.0537 3.7819 11.0537H5.05561C5.40733 11.0537 5.69246 10.7685 5.69246 10.4168V9.1431C5.69246 8.79137 5.40733 8.50625 5.05561 8.50625H3.7819Z"
+                                                            fill="black" fill-opacity="0.5" />
+                                                    </svg>
+    
+                                                    <span
+                                                        class="ml-[3px] text-[12px] leading-[14px] font-medium text-black/50 capitalize">
+                                                        {{ usePodcast.formatDate(podcast.data.release_date) }}
+                                                    </span>
+                                                </button>
+                                                <button
+                                                    class="flex items-center mr-[16px] rounded-lg border border-[#0000000D]/5 p-[3px]">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M5.11994 5.08026C5.95597 4.24423 7.08987 3.77456 8.27219 3.77456C9.45452 3.77456 10.5884 4.24423 11.4244 5.08026C12.2605 5.91629 12.7302 7.05019 12.7302 8.23252V8.34123C12.531 8.27083 12.3166 8.23252 12.0933 8.23252H11.4564C10.4013 8.23252 9.54589 9.0879 9.54589 10.1431V12.0536C9.54589 13.1088 10.4013 13.9642 11.4564 13.9642H12.0933C13.1485 13.9642 14.0038 13.1088 14.0038 12.0536V10.1458C14.0039 10.1449 14.0039 10.144 14.0039 10.1431V8.23252C14.0039 6.71239 13.4 5.25452 12.3251 4.17962C11.2502 3.10472 9.79232 2.50085 8.27219 2.50085C6.75206 2.50085 5.29419 3.10472 4.21929 4.17962C3.1444 5.25452 2.54053 6.71239 2.54053 8.23252V10.1431V12.0536C2.54053 13.1088 3.39591 13.9642 4.45108 13.9642H5.08793C6.1431 13.9642 6.99849 13.1088 6.99849 12.0536V10.1431C6.99849 9.0879 6.1431 8.23252 5.08793 8.23252H4.45108C4.22778 8.23252 4.01342 8.27083 3.81423 8.34123V8.23252C3.81423 7.05019 4.28391 5.91629 5.11994 5.08026ZM4.45108 9.50622C4.09936 9.50622 3.81423 9.79135 3.81423 10.1431V12.0536C3.81423 12.4053 4.09936 12.6905 4.45108 12.6905H5.08793C5.43966 12.6905 5.72479 12.4053 5.72479 12.0536V10.1431C5.72479 9.79135 5.43966 9.50622 5.08793 9.50622H4.45108ZM11.4564 9.50622C11.1047 9.50622 10.8196 9.79135 10.8196 10.1431V12.0536C10.8196 12.4053 11.1047 12.6905 11.4564 12.6905H12.0933C12.445 12.6905 12.7301 12.4053 12.7301 12.0536V10.1431C12.7301 9.79135 12.445 9.50622 12.0933 9.50622H11.4564Z"
+                                                            fill="black" fill-opacity="0.5" />
+                                                    </svg>
+                                                    <span
+                                                        class="ml-[3px] text-[12px] leading-[14px] font-medium text-black/50 capitalize">
+                                                        {{ $prismic.asText(podcast.data.listens) }}
+                                                    </span>
+                                                </button>
+                                                <button
+                                                    class="flex items-center rounded-lg border border-[#0000000D]/5 p-[3px]">
+                                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M7.21471 2.13775C4.40092 2.13775 2.11989 4.41877 2.11989 7.23256C2.11989 10.0463 4.40092 12.3274 7.21471 12.3274C10.0285 12.3274 12.3095 10.0463 12.3095 7.23256C12.3095 4.41877 10.0285 2.13775 7.21471 2.13775ZM0.846191 7.23256C0.846191 3.71533 3.69747 0.864044 7.21471 0.864044C10.7319 0.864044 13.5832 3.71533 13.5832 7.23256C13.5832 10.7498 10.7319 13.6011 7.21471 13.6011C3.69747 13.6011 0.846191 10.7498 0.846191 7.23256Z"
+                                                            fill="black" fill-opacity="0.5" />
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M7.21473 3.41144C7.56646 3.41144 7.85158 3.69657 7.85158 4.04829V6.96876L9.57561 8.69278C9.82432 8.94149 9.82432 9.34472 9.57561 9.59342C9.3269 9.84213 8.92367 9.84213 8.67497 9.59342L6.76441 7.68287C6.64498 7.56344 6.57788 7.40145 6.57788 7.23255V4.04829C6.57788 3.69657 6.86301 3.41144 7.21473 3.41144Z"
+                                                            fill="black" fill-opacity="0.5" />
+                                                    </svg>
+                                                    <span
+                                                        class="ml-[3px] text-[12px] leading-[14px] font-medium text-black/50 capitalize">
+                                                        {{ $prismic.asText(podcast.data.duration) }}
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <h3
+                                                class="mt-[15px] text-black text-[20px] lg:text-[30px] leading-[28px] lg:leading-[38px] font-semibold max-w-[490px]">
+                                                {{ $prismic.asText(podcast.data.podcast_name) }}
+                                            </h3>
+                                            <h3 class="mt-[15px] text-black/50 text-[20px] leading-[30px] max-w-[470px]">
+                                                {{ $prismic.asText(podcast.data.excerpt) }}
+                                            </h3>
+    
+                                            <div class="flex items-center mt-[40px] pb-[10px] border-b border-black/5">
+                                                <a :href="podcast.data.episode_link.url" class="mr-[10px]">
+                                                    <button
+                                                        class="bg-63-light-green text-63-dark-green rounded-lg px-[20px] py-[12px] text-[18px] leading-[28px] font-semibold flex items-center">
+                                                        <svg width="14" height="16" viewBox="0 0 14 16" fill="none"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M0.166504 2.16666V13.8333C0.168411 14.1053 0.236825 14.3726 0.365776 14.612C0.494728 14.8514 0.6803 15.0556 0.906306 15.2068C1.13231 15.3581 1.39188 15.4517 1.66238 15.4795C1.93288 15.5074 2.20609 15.4686 2.45817 15.3667L12.6665 9.45C12.927 9.30586 13.1441 9.09458 13.2953 8.83812C13.4466 8.58166 13.5263 8.28938 13.5263 7.99166C13.5263 7.69394 13.4466 7.40166 13.2953 7.1452C13.1441 6.88874 12.927 6.67746 12.6665 6.53333L2.45817 0.616662C2.21186 0.516613 1.94518 0.47694 1.68041 0.500954C1.41564 0.524968 1.16046 0.611973 0.936168 0.754705C0.711874 0.897437 0.52498 1.09175 0.391088 1.32143C0.257196 1.55111 0.180192 1.80949 0.166504 2.075"
+                                                                fill="#16363F" />
+                                                        </svg>
+                                                        <span class="ml-2 font-semibold">Listen</span>
+                                                    </button>
+                                                </a>
+                                                <button class="bg-black/5 rounded-lg px-[21px] py-[17px]">
+                                                    <svg width="10" height="16" viewBox="0 0 10 16" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M2.5 2.16667C2.27899 2.16667 2.06702 2.25446 1.91074 2.41074C1.75446 2.56702 1.66667 2.77899 1.66667 3V13.1948L4.57125 11.4521C4.83516 11.2937 5.16484 11.2937 5.42875 11.4521L8.33333 13.1948V3C8.33333 2.77899 8.24554 2.56702 8.08926 2.41074C7.93298 2.25446 7.72101 2.16667 7.5 2.16667H2.5ZM0.732233 1.23223C1.20107 0.763392 1.83696 0.5 2.5 0.5H7.5C8.16304 0.5 8.79893 0.763392 9.26777 1.23223C9.73661 1.70107 10 2.33696 10 3V14.6667C10 14.9669 9.83851 15.2439 9.57725 15.3918C9.31599 15.5398 8.99536 15.5357 8.73792 15.3812L5 13.1385L1.26208 15.3812C1.00464 15.5357 0.684008 15.5398 0.422751 15.3918C0.161494 15.2439 0 14.9669 0 14.6667V3C0 2.33696 0.263392 1.70107 0.732233 1.23223Z"
+                                                            fill="black" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </RouterLink>
                             </div>
                         </div>
-                    </RouterLink>
+                    </div>
+                    <div class="" v-else></div>
+                </div>
+                <div class="mb-[48px] w-full" v-if="podcastLength == 0">
+                    <el-skeleton :rows="4" :loading="loading" animated />
                 </div>
             </div>
+            
             <div class="sm:w-[380px] sm:shrink-0 my-[60px] 2xl:my-0">
                 <div class="pt-[25px] pl-[30px] pr-[40px] pb-[32px] rounded-xl border-2 border-black/5">
                     <h2 class="text-[32px] leading-[44px] text-black font-bold">Our Channels</h2>
@@ -235,4 +265,5 @@ const { data: allPodcasts } = useAllPrismicDocumentsByType("podcasts");
 
 .card:hover .img {
     transform: scale(1.02);
-}</style>
+}
+</style>
