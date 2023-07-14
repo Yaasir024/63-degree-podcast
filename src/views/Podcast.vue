@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useRoute } from "vue-router";
 
 import {
@@ -8,6 +8,7 @@ import {
     defineSliceZoneComponents,
     PrismicRichText,
     useAllPrismicDocumentsByTag,
+    PrismicImage,
 } from "@prismicio/vue";
 
 import Header from '@/components/navigation/Header.vue';
@@ -28,6 +29,20 @@ const components = defineSliceZoneComponents({
     description: Text,
 });
 
+const getPrevNext = async (id) => {
+    console.log(id)
+    // const prevpost = (await $prismic.api.query($prismic.predicates.at('document.type', 'podcasts'), { pageSize: 1, after: `${id}`, orderings: '[my.post.date desc]' })).results[0]
+
+    // const nextpost = (await $prismic.api.query($prismic.predicates.at('document.type', 'podcasts'), { pageSize: 1, after: `${id}`, orderings: '[my.post.date]' })).results[0]
+
+    // console.log(prevpost)
+}
+watch(article, (newValue, oldValue) => {
+    if (newValue && newValue !== oldValue) {
+        // Call your API here
+        getPrevNext(article.value.id);
+    }
+});
 </script>
 
 <template>
@@ -36,19 +51,20 @@ const components = defineSliceZoneComponents({
         <section class="">
             <main class="" v-if="article">
                 <section class="hero px-[28px] xs:px-[42px] md:px-[64px] xl:px-[94px] pt-[72px] ">
-                    <div class="flex">
-                        <div class="pb-[83px]">
+                    <div class="flex justify-between">
+                        <div class="pb-[83px] lg:pr-[10px]">
                             <div class="flex items-center">
                                 <span
                                     class="mr-[10px] text-base sm:text-[18px] leading-[20px] font-medium text-black/30 shrink-0">All
                                     podcasts</span>
-                                <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="7" height="11" viewBox="0 0 7 11" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M6.45079 4.5358L2.21079 0.295798C2.11783 0.20207 2.00723 0.127675 1.88537 0.0769067C1.76351 0.026138 1.6328 0 1.50079 0C1.36878 0 1.23807 0.026138 1.11622 0.0769067C0.994356 0.127675 0.883755 0.20207 0.790792 0.295798C0.604542 0.483161 0.5 0.736612 0.5 1.0008C0.5 1.26498 0.604542 1.51844 0.790792 1.7058L4.33079 5.2458L0.790792 8.7858C0.604542 8.97316 0.5 9.22661 0.5 9.4908C0.5 9.75498 0.604542 10.0084 0.790792 10.1958C0.884233 10.2885 0.995049 10.3618 1.11689 10.4116C1.23872 10.4613 1.36919 10.4866 1.50079 10.4858C1.6324 10.4866 1.76286 10.4613 1.8847 10.4116C2.00654 10.3618 2.11735 10.2885 2.21079 10.1958L6.45079 5.9558C6.54452 5.86283 6.61891 5.75223 6.66968 5.63037C6.72045 5.50852 6.74659 5.37781 6.74659 5.2458C6.74659 5.11379 6.72045 4.98308 6.66968 4.86122C6.61891 4.73936 6.54452 4.62876 6.45079 4.5358Z"
                                         fill="black" fill-opacity="0.3" />
                                 </svg>
                                 <span
-                                    class="ml-[10px] text-base sm:text-[18px] leading-[20px] font-medium text-black max-w-[180px] 3xs:max-w-[200px] xs:max-w-full truncate">{{
+                                    class="ml-[10px] text-base sm:text-[18px] leading-[20px] font-medium text-black max-w-[180px] 3xs:max-w-[200px] xs:max-w-full truncate capitalize">{{
                                         article.data.category }}</span>
                             </div>
                             <h2
@@ -69,34 +85,39 @@ const components = defineSliceZoneComponents({
                                     </button>
                                 </a>
                             </div>
-    
+
                         </div>
-                        <div class="max-w-[500px] hidden 2xl:block">
-                            <img src="@/assets/images/episode/current.png" alt="" class="w-full ">
+                        <div class="max-w-[500px] hidden lg:block">
+                            <img :src="article.data.placeholder_image.url" :alt="$prismic.asText(article.data.podcast_name)" class="podcast-image max-h-[350px] w-[500px]">
                         </div>
-    
+
                     </div>
                 </section>
-                <!-- {{ article.data}} -->
                 <div class="px-[28px] xs:px-[42px] md:px-[64px] xl:px-[95px] pt-[38px] pb-[180px]">
+                    <div class="mb-12 block lg:hidden">
+                        <img :src="article.data.placeholder_image.url" :alt="$prismic.asText(article.data.podcast_name)" class="podcast-image max-h-[350px] w-[500px]">
+
+                    </div>
                     <section class="">
-                        <div class="flex items-center">
+                        <div class="flex items-center flex-wrap gap-y-[15px]">
                             <button class="flex items-center mr-[16px] rounded-lg bg-[#3789FC] px-[7px] py-[4px]">
                                 <span class="text-[13px] leading-[15px] font-medium text-white">New</span>
                             </button>
                             <button class="flex items-center mr-[16px] rounded-lg border border-[#0000000D]/5 p-[3px]">
-                                <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="13" height="14" viewBox="0 0 13 14" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                         d="M8.8767 0.864014C9.22842 0.864014 9.51355 1.14914 9.51355 1.50087V2.13771H10.1504C11.2056 2.13771 12.061 2.9931 12.061 4.04827V6.59568V11.6905C12.061 12.7457 11.2056 13.601 10.1504 13.601H2.50821C1.45304 13.601 0.597656 12.7457 0.597656 11.6905V6.59568V4.04827C0.597656 2.9931 1.45304 2.13771 2.50821 2.13771H3.14505V1.50087C3.14505 1.14914 3.43018 0.864014 3.7819 0.864014C4.13363 0.864014 4.41876 1.14914 4.41876 1.50087V2.13771H8.23984V1.50087C8.23984 1.14914 8.52497 0.864014 8.8767 0.864014ZM10.7873 4.04827V5.95883H1.87136V4.04827C1.87136 3.69654 2.15649 3.41141 2.50821 3.41141H3.14505V4.04827C3.14505 4.39999 3.43018 4.68512 3.7819 4.68512C4.13363 4.68512 4.41876 4.39999 4.41876 4.04827V3.41141H8.23984V4.04827C8.23984 4.39999 8.52497 4.68512 8.8767 4.68512C9.22842 4.68512 9.51355 4.39999 9.51355 4.04827V3.41141H10.1504C10.5022 3.41141 10.7873 3.69654 10.7873 4.04827ZM10.7873 7.23253H1.87136V11.6905C1.87136 12.0422 2.15649 12.3273 2.50821 12.3273H10.1504C10.5022 12.3273 10.7873 12.0422 10.7873 11.6905V7.23253ZM3.7819 8.50625C3.43018 8.50625 3.14505 8.79137 3.14505 9.1431V10.4168C3.14505 10.7685 3.43018 11.0537 3.7819 11.0537H5.05561C5.40733 11.0537 5.69246 10.7685 5.69246 10.4168V9.1431C5.69246 8.79137 5.40733 8.50625 5.05561 8.50625H3.7819Z"
                                         fill="black" fill-opacity="0.5" />
                                 </svg>
-    
+
                                 <span class="ml-[3px] text-[12px] leading-[14px] font-medium text-black/50 capitalize">
                                     {{ usePodcast.formatDate(article.data.release_date) }}
                                 </span>
                             </button>
                             <button class="flex items-center mr-[16px] rounded-lg border border-[#0000000D]/5 p-[3px]">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                         d="M5.11994 5.08026C5.95597 4.24423 7.08987 3.77456 8.27219 3.77456C9.45452 3.77456 10.5884 4.24423 11.4244 5.08026C12.2605 5.91629 12.7302 7.05019 12.7302 8.23252V8.34123C12.531 8.27083 12.3166 8.23252 12.0933 8.23252H11.4564C10.4013 8.23252 9.54589 9.0879 9.54589 10.1431V12.0536C9.54589 13.1088 10.4013 13.9642 11.4564 13.9642H12.0933C13.1485 13.9642 14.0038 13.1088 14.0038 12.0536V10.1458C14.0039 10.1449 14.0039 10.144 14.0039 10.1431V8.23252C14.0039 6.71239 13.4 5.25452 12.3251 4.17962C11.2502 3.10472 9.79232 2.50085 8.27219 2.50085C6.75206 2.50085 5.29419 3.10472 4.21929 4.17962C3.1444 5.25452 2.54053 6.71239 2.54053 8.23252V10.1431V12.0536C2.54053 13.1088 3.39591 13.9642 4.45108 13.9642H5.08793C6.1431 13.9642 6.99849 13.1088 6.99849 12.0536V10.1431C6.99849 9.0879 6.1431 8.23252 5.08793 8.23252H4.45108C4.22778 8.23252 4.01342 8.27083 3.81423 8.34123V8.23252C3.81423 7.05019 4.28391 5.91629 5.11994 5.08026ZM4.45108 9.50622C4.09936 9.50622 3.81423 9.79135 3.81423 10.1431V12.0536C3.81423 12.4053 4.09936 12.6905 4.45108 12.6905H5.08793C5.43966 12.6905 5.72479 12.4053 5.72479 12.0536V10.1431C5.72479 9.79135 5.43966 9.50622 5.08793 9.50622H4.45108ZM11.4564 9.50622C11.1047 9.50622 10.8196 9.79135 10.8196 10.1431V12.0536C10.8196 12.4053 11.1047 12.6905 11.4564 12.6905H12.0933C12.445 12.6905 12.7301 12.4053 12.7301 12.0536V10.1431C12.7301 9.79135 12.445 9.50622 12.0933 9.50622H11.4564Z"
                                         fill="black" fill-opacity="0.5" />
@@ -106,7 +127,8 @@ const components = defineSliceZoneComponents({
                                 </span>
                             </button>
                             <button class="flex items-center rounded-lg border border-[#0000000D]/5 p-[3px]">
-                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
                                         d="M7.21471 2.13775C4.40092 2.13775 2.11989 4.41877 2.11989 7.23256C2.11989 10.0463 4.40092 12.3274 7.21471 12.3274C10.0285 12.3274 12.3095 10.0463 12.3095 7.23256C12.3095 4.41877 10.0285 2.13775 7.21471 2.13775ZM0.846191 7.23256C0.846191 3.71533 3.69747 0.864044 7.21471 0.864044C10.7319 0.864044 13.5832 3.71533 13.5832 7.23256C13.5832 10.7498 10.7319 13.6011 7.21471 13.6011C3.69747 13.6011 0.846191 10.7498 0.846191 7.23256Z"
                                         fill="black" fill-opacity="0.5" />
@@ -130,12 +152,13 @@ const components = defineSliceZoneComponents({
                             <ul class="mt-[20px]">
                                 <li class="text-[17px] leading-[25px] text-[#3789FC] mb-2"
                                     v-for="episode_link in article.data.episode_links" :key="episode_link">
-                                    <a :href="episode_link.link.url" class="">{{ $prismic.asText(episode_link.placeholder_text)
+                                    <a :href="episode_link.link.url" class="">{{
+                                        $prismic.asText(episode_link.placeholder_text)
                                     }}</a>
                                 </li>
                             </ul>
                         </div>
-    
+
                         <div class="mt-[40px]">
                             <span class="text-[18px] leading-[20px] font-medium text-black/30">Listen also on</span>
                             <div class="mt-[20px] flex items-center gap-x-[10px]">
@@ -217,13 +240,15 @@ const components = defineSliceZoneComponents({
                                     </clipPath>
                                 </defs>
                             </svg>
-                            <h3 class="text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">№53 — A
+                            <h3 class="text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">№53 —
+                                A
                                 Non-Artsy Guide to
                                 Creating Beautiful
                                 Apps and Sites</h3>
                         </div>
                         <div class="flex-50% flex items-center justify-end border-l border-black/5 pl-5">
-                            <h3 class="text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">№55 — Why
+                            <h3 class="text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">№55 —
+                                Why
                                 The
                                 Rise of Colon
                                 Cancer In Young People Is Puzzling Doctors</h3>
@@ -231,7 +256,8 @@ const components = defineSliceZoneComponents({
                                 fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_23_67402)">
                                     <circle cx="40" cy="40" r="40" fill="white" fill-opacity="0.1" />
-                                    <circle cx="40" cy="40" r="39.25" stroke="black" stroke-opacity="0.05" stroke-width="1.5" />
+                                    <circle cx="40" cy="40" r="39.25" stroke="black" stroke-opacity="0.05"
+                                        stroke-width="1.5" />
                                     <g clip-path="url(#clip1_23_67402)">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
                                             d="M32 40C32 39.4477 32.4477 39 33 39H47C47.5523 39 48 39.4477 48 40C48 40.5523 47.5523 41 47 41H33C32.4477 41 32 40.5523 32 40Z"
@@ -255,44 +281,55 @@ const components = defineSliceZoneComponents({
                             </svg>
                         </div>
                     </div>
-    
+
                 </div>
             </main>
-            <div class="" v-else>Error Loading</div>
+            <div class="h-[80vh] flex items-center justify-center" v-if="!article && !error">
+                <div class="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
         </section>
-        <div class="" v-if="error == 'Error: No documents were returned'">
-            <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
-                <div class="text-center">
-                    <p class="text-base font-semibold text-63-dark-green">404</p>
-                    <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Page not found</h1>
-                    <p class="mt-6 text-base leading-7 text-gray-600">Sorry, we couldn’t find the page you’re looking for.
-                    </p>
-                    <div class="mt-10 flex items-center justify-center gap-x-6">
-                        <RouterLink to="/">
-                            <button
-                                class="rounded-md bg-63-dark-green px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-63-dark-green/90">Go
-                                back home</button>
-                        </RouterLink>
+        <div class="" v-if="error">
+            <div class="" v-if="error == 'Error: No documents were returned'">
+                <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+                    <div class="text-center">
+                        <p class="text-base font-semibold text-63-dark-green">404</p>
+                        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Page not found</h1>
+                        <p class="mt-6 text-base leading-7 text-gray-600">Sorry, we couldn’t find the page you’re looking
+                            for.
+                        </p>
+                        <div class="mt-10 flex items-center justify-center gap-x-6">
+                            <RouterLink to="/">
+                                <button
+                                    class="rounded-md bg-63-dark-green px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-63-dark-green/90">Go
+                                    back home</button>
+                            </RouterLink>
+                        </div>
                     </div>
-                </div>
-            </main>
-        </div>
-        <div class="" v-if="error == 'Error: An invalid API response was returned'">
-            <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
-                <div class="text-center">
-                    <p class="text-base font-semibold text-63-dark-green">404</p>
-                    <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Error</h1>
-                    <p class="mt-6 text-base leading-7 text-gray-600">Sorry, an error occured while trying to get your document. Try again
-                    </p>
-                    <div class="mt-10 flex items-center justify-center gap-x-6">
-                        <RouterLink to="/">
-                            <button
-                                class="rounded-md bg-63-dark-green px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-63-dark-green/90">Go
-                                back home</button>
-                        </RouterLink>
+                </main>
+            </div>
+            <div class="" v-if="error == 'TypeError: Failed to fetch'">
+                <main class="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+                    <div class="text-center">
+                        <p class="text-base font-semibold text-63-dark-green">404</p>
+                        <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Error</h1>
+                        <p class="mt-6 text-base leading-7 text-gray-600">Sorry, an error occured while trying to get your
+                            document. Try again
+                        </p>
+                        <div class="mt-10 flex items-center justify-center gap-x-6">
+                            <RouterLink to="/">
+                                <button
+                                    class="rounded-md bg-63-dark-green px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-63-dark-green/90">Go
+                                    back home</button>
+                            </RouterLink>
+                        </div>
                     </div>
-                </div>
-            </main>
+                </main>
+            </div>
         </div>
         <Footer />
     </div>
@@ -305,4 +342,52 @@ const components = defineSliceZoneComponents({
     background-image: url(./../assets/images/episode/detail-hero.svg);
     background-repeat: no-repeat;
     background-size: cover;
-}</style>
+}
+
+.podcast-image {
+    object-fit: cover;
+    object-position: top;
+}
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid #6AE6D4;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #6AE6D4 transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+</style>
