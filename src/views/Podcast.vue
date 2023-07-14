@@ -20,6 +20,8 @@ import Text from "@/components/slices/Text.vue";
 
 import { usePodcastStore } from '@/stores/podcast.js'
 
+import { getPreviousPost, getNextPost } from "@/services/pagination"
+
 const usePodcast = usePodcastStore()
 
 const route = useRoute();
@@ -31,25 +33,20 @@ const components = defineSliceZoneComponents({
     description: Text,
 });
 
-// const getPrevNext = async (id) => {
-//     console.log(id)
-//     // const prevpost = ($prismic.api.query($prismic.predicates.at('document.type', 'podcasts'), { pageSize: 1, after: `${id}`, orderings: '[my.post.date desc]' })).results[0]
-//     // const pre = $prismic.api.query($prismic.predicates.at('document.type', 'podcasts'), { pageSize: 1, after: `${id}`, orderings: '[my.post.date desc]' })
-
-//     // const nextpost = (await $prismic.api.query($prismic.predicates.at('document.type', 'podcasts'), { pageSize: 1, after: `${id}`, orderings: '[my.post.date]' })).results[0]
-//     // Fetch the previous document details
-//     // const previousDocumentResponse = await axios.get(`https://63-degree-podcast.cdn.prismic.io/api/v2/documents/search?ref=ZLEqCxIAACMAb0Lk&q=[[my.podcasts,<,"${id}"]]&orderings=[my.podcasts desc]&pageSize=1`);
-//     const previousDocumentResponse = await axios.get(`https://63-degree-podcast.cdn.prismic.io/api/v2/documents/search?ref=ZLEqCxIAACMAb0Lk&q`);
-//     // previousDocument.value = previousDocumentResponse.data.results[0];
-
-//     console.log(previousDocumentResponse)
-// }
-// watch(article, (newValue, oldValue) => {
-//     if (newValue && newValue !== oldValue) {
-//         // Call your API here
-//         getPrevNext(article.value.id);
-//     }
-// });
+const previousBlogDetail = ref({ data: {}, loaded: false })
+const nextBlogDetail = ref({ data: {}, loaded: false })
+watch(article, (newValue, oldValue) => {
+    if (newValue && newValue !== oldValue) {
+        getNextPost(article.value.first_publication_date).then((response) => {
+            nextBlogDetail.value.data = response
+            nextBlogDetail.value.loaded = true
+        })
+        getPreviousPost(article.value.first_publication_date).then((response) => {
+            previousBlogDetail.value.data = response
+            previousBlogDetail.value.loaded = true
+        })
+    }
+});
 </script>
 
 <template>
@@ -220,75 +217,74 @@ const components = defineSliceZoneComponents({
                             </div>
                         </div>
                     </section>
-                    <div class="mt-[100px] border-t-2 border-black/5 pt-[35px] flex items-center" v-if="false">
+                    <div class="mt-[100px] border-t-2 border-black/5 pt-[35px] flex items-center" v-if="previousBlogDetail.loaded && nextBlogDetail.loaded">
                         <div class="flex-50% flex items-center border-r border-black/5 pr-5">
-                            <svg class="hidden md:block mr-[12px] 2xl:mr-[30px]" width="80" height="80" viewBox="0 0 80 80"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_23_67403)">
-                                    <circle cx="40" cy="40" r="40" transform="matrix(-1 0 0 1 80 0)" fill="white"
-                                        fill-opacity="0.1" />
-                                    <circle cx="40" cy="40" r="39.25" transform="matrix(-1 0 0 1 80 0)" stroke="black"
-                                        stroke-opacity="0.05" stroke-width="1.5" />
-                                    <g clip-path="url(#clip1_23_67403)">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M48 40C48 39.4477 47.5523 39 47 39H33C32.4477 39 32 39.4477 32 40C32 40.5523 32.4477 41 33 41H47C47.5523 41 48 40.5523 48 40Z"
-                                            fill="black" fill-opacity="0.3" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M32.2929 39.2929C31.9024 39.6834 31.9024 40.3166 32.2929 40.7071L36.2929 44.7071C36.6834 45.0976 37.3166 45.0976 37.7071 44.7071C38.0976 44.3166 38.0976 43.6834 37.7071 43.2929L33.7071 39.2929C33.3166 38.9024 32.6834 38.9024 32.2929 39.2929Z"
-                                            fill="black" fill-opacity="0.3" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M37.7071 35.2929C37.3166 34.9024 36.6834 34.9024 36.2929 35.2929L32.2929 39.2929C31.9024 39.6834 31.9024 40.3166 32.2929 40.7071C32.6834 41.0976 33.3166 41.0976 33.7071 40.7071L37.7071 36.7071C38.0976 36.3166 38.0976 35.6834 37.7071 35.2929Z"
-                                            fill="black" fill-opacity="0.3" />
+                            <a :href="previousBlogDetail.data.uid" class="flex items-center" v-if="previousBlogDetail.data">
+                                <svg class="hidden md:block mr-[12px] 2xl:mr-[30px]" width="80" height="80"
+                                    viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_23_67403)">
+                                        <circle cx="40" cy="40" r="40" transform="matrix(-1 0 0 1 80 0)" fill="white"
+                                            fill-opacity="0.1" />
+                                        <circle cx="40" cy="40" r="39.25" transform="matrix(-1 0 0 1 80 0)" stroke="black"
+                                            stroke-opacity="0.05" stroke-width="1.5" />
+                                        <g clip-path="url(#clip1_23_67403)">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M48 40C48 39.4477 47.5523 39 47 39H33C32.4477 39 32 39.4477 32 40C32 40.5523 32.4477 41 33 41H47C47.5523 41 48 40.5523 48 40Z"
+                                                fill="black" fill-opacity="0.3" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M32.2929 39.2929C31.9024 39.6834 31.9024 40.3166 32.2929 40.7071L36.2929 44.7071C36.6834 45.0976 37.3166 45.0976 37.7071 44.7071C38.0976 44.3166 38.0976 43.6834 37.7071 43.2929L33.7071 39.2929C33.3166 38.9024 32.6834 38.9024 32.2929 39.2929Z"
+                                                fill="black" fill-opacity="0.3" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M37.7071 35.2929C37.3166 34.9024 36.6834 34.9024 36.2929 35.2929L32.2929 39.2929C31.9024 39.6834 31.9024 40.3166 32.2929 40.7071C32.6834 41.0976 33.3166 41.0976 33.7071 40.7071L37.7071 36.7071C38.0976 36.3166 38.0976 35.6834 37.7071 35.2929Z"
+                                                fill="black" fill-opacity="0.3" />
+                                        </g>
                                     </g>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_23_67403">
-                                        <rect width="80" height="80" fill="white" transform="matrix(-1 0 0 1 80 0)" />
-                                    </clipPath>
-                                    <clipPath id="clip1_23_67403">
-                                        <rect width="24" height="24" fill="white" transform="matrix(-1 0 0 1 52 28)" />
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                            <h3 class="text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">№53 —
-                                A
-                                Non-Artsy Guide to
-                                Creating Beautiful
-                                Apps and Sites</h3>
+                                    <defs>
+                                        <clipPath id="clip0_23_67403">
+                                            <rect width="80" height="80" fill="white" transform="matrix(-1 0 0 1 80 0)" />
+                                        </clipPath>
+                                        <clipPath id="clip1_23_67403">
+                                            <rect width="24" height="24" fill="white" transform="matrix(-1 0 0 1 52 28)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                                <h3 class="text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">
+                                    {{ $prismic.asText(previousBlogDetail.data.podcast_name) }}</h3>
+                            </a>
                         </div>
                         <div class="flex-50% flex items-center justify-end border-l border-black/5 pl-5">
-                            <h3 class="text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">№55 —
-                                Why
-                                The
-                                Rise of Colon
-                                Cancer In Young People Is Puzzling Doctors</h3>
-                            <svg class="hidden md:block ml-[12px] 2xl:ml-[30px]" width="80" height="80" viewBox="0 0 80 80"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_23_67402)">
-                                    <circle cx="40" cy="40" r="40" fill="white" fill-opacity="0.1" />
-                                    <circle cx="40" cy="40" r="39.25" stroke="black" stroke-opacity="0.05"
-                                        stroke-width="1.5" />
-                                    <g clip-path="url(#clip1_23_67402)">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M32 40C32 39.4477 32.4477 39 33 39H47C47.5523 39 48 39.4477 48 40C48 40.5523 47.5523 41 47 41H33C32.4477 41 32 40.5523 32 40Z"
-                                            fill="black" fill-opacity="0.3" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M47.7071 39.2929C48.0976 39.6834 48.0976 40.3166 47.7071 40.7071L43.7071 44.7071C43.3166 45.0976 42.6834 45.0976 42.2929 44.7071C41.9024 44.3166 41.9024 43.6834 42.2929 43.2929L46.2929 39.2929C46.6834 38.9024 47.3166 38.9024 47.7071 39.2929Z"
-                                            fill="black" fill-opacity="0.3" />
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M42.2929 35.2929C42.6834 34.9024 43.3166 34.9024 43.7071 35.2929L47.7071 39.2929C48.0976 39.6834 48.0976 40.3166 47.7071 40.7071C47.3166 41.0976 46.6834 41.0976 46.2929 40.7071L42.2929 36.7071C41.9024 36.3166 41.9024 35.6834 42.2929 35.2929Z"
-                                            fill="black" fill-opacity="0.3" />
+                            <a :href="nextBlogDetail.data.uid" class="flex items-center" v-if="nextBlogDetail.data">
+
+                                <h3 class="text-[14px] lg:text-[20px] leading-[24px] font-medium text-black max-w-[480px]">
+                                    {{ $prismic.asText(nextBlogDetail.data.podcast_name) }}</h3>
+                                <svg class="hidden md:block ml-[12px] 2xl:ml-[30px]" width="80" height="80"
+                                    viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_23_67402)">
+                                        <circle cx="40" cy="40" r="40" fill="white" fill-opacity="0.1" />
+                                        <circle cx="40" cy="40" r="39.25" stroke="black" stroke-opacity="0.05"
+                                            stroke-width="1.5" />
+                                        <g clip-path="url(#clip1_23_67402)">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M32 40C32 39.4477 32.4477 39 33 39H47C47.5523 39 48 39.4477 48 40C48 40.5523 47.5523 41 47 41H33C32.4477 41 32 40.5523 32 40Z"
+                                                fill="black" fill-opacity="0.3" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M47.7071 39.2929C48.0976 39.6834 48.0976 40.3166 47.7071 40.7071L43.7071 44.7071C43.3166 45.0976 42.6834 45.0976 42.2929 44.7071C41.9024 44.3166 41.9024 43.6834 42.2929 43.2929L46.2929 39.2929C46.6834 38.9024 47.3166 38.9024 47.7071 39.2929Z"
+                                                fill="black" fill-opacity="0.3" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M42.2929 35.2929C42.6834 34.9024 43.3166 34.9024 43.7071 35.2929L47.7071 39.2929C48.0976 39.6834 48.0976 40.3166 47.7071 40.7071C47.3166 41.0976 46.6834 41.0976 46.2929 40.7071L42.2929 36.7071C41.9024 36.3166 41.9024 35.6834 42.2929 35.2929Z"
+                                                fill="black" fill-opacity="0.3" />
+                                        </g>
                                     </g>
-                                </g>
-                                <defs>
-                                    <clipPath id="clip0_23_67402">
-                                        <rect width="80" height="80" fill="white" />
-                                    </clipPath>
-                                    <clipPath id="clip1_23_67402">
-                                        <rect width="24" height="24" fill="white" transform="translate(28 28)" />
-                                    </clipPath>
-                                </defs>
-                            </svg>
+                                    <defs>
+                                        <clipPath id="clip0_23_67402">
+                                            <rect width="80" height="80" fill="white" />
+                                        </clipPath>
+                                        <clipPath id="clip1_23_67402">
+                                            <rect width="24" height="24" fill="white" transform="translate(28 28)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </a>
                         </div>
                     </div>
 
